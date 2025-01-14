@@ -27,17 +27,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .main_title a {
     color: #fff;
     text-decoration: none;
@@ -46,6 +35,15 @@ body {
 
 .main_title a:hover {
     text-decoration: underline;
+}
+
+.main_menu {
+    width: 100%;
+    height: auto;
+}
+
+.filters_menu {
+    height: 200px;
 }
 
 .search-bar {
@@ -67,7 +65,7 @@ body {
 
 .prof_logo {
     height : 90%;
-    padding-right : 20px;
+    padding-right : 25px;
 
 }
 
