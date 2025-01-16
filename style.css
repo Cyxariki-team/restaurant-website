@@ -141,6 +141,7 @@ body {
     z-index: 2;
     text-align: center;
     box-sizing: border-box;
+    color: white;
 }
 
 .popup .close_btn{
@@ -164,7 +165,40 @@ body {
 .popup.active .content {
     transition:all 300ms ease-in-out;
     transform: translate(-50%, -50%) scale(1);
+    font-size: 50px;
 }
+
+.login_input {
+    position: fixed;
+    top: 150px;
+    left: 170px;
+
+}
+
+.pass_input {
+    position: fixed;
+    top: 170px;
+    left: 170px;
+
+}
+
+.login_button {
+    height: 30px;
+    width: 100px;
+    position: fixed;
+    top: 300px;
+    left: 200px;
+}
+
+.registration_button {
+    height: 30px;
+    width: 100px;
+    position: fixed;
+    top: 350px;
+    left: 200px;
+
+}
+
 
 .search-bar {
     flex-grow: 1;
