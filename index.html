@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resturan</title>
   <link rel="stylesheet" href="style.css">
+  <script src="scripts.js"></script>
 </head>
 <body>
 
@@ -29,7 +30,7 @@
         <span>1</span>
       </div>
       
-      <button type="button" class="prof_logo">
+      <button onclick="togglePopup()" type="button" class="prof_logo">
         <img class="" src="logo-img.png" alt="profile logo" height="100%">
       </button>
     </div>
@@ -79,7 +80,17 @@
 
     </div>
 
-  
+    <div class="popup" id="popup_1">
+      <div class="overlay" onclick="togglePopup()"></div>
+      <div class="content">
+        <div class="close_btn" onclick="togglePopup()">&times;</div>
+        <h1>Login</h1>
+        <input class="login_input" type="text" placeholder="gmail">
+        <input class="login_input" type="text" placeholder="password">
+        <input class="login_button" type="button" placeholder="Увійти">
+        <input class="regestration_button" type="button" placeholder="Реєстрація">
+      </div>
+    </div>
 
     <div class="test_class"></div>
 </body>
