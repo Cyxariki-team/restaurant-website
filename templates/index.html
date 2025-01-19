@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link rel="stylesheet" href="../static/css/style.css">
   <script src="../static/js/scripts.js"></script>
 </head>
@@ -72,7 +73,7 @@
 
       <div class="products_menu">
           {% for product in products %}
-              <div>
+              <div class="test_product">
                 <h2>{{ product.name }}</h2>
                 <p>{{ product.description }}</p>
                 <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:200px;height:auto;">
