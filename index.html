@@ -18,7 +18,7 @@
 
       <nav>
         <a href="#menu">МЕНЮ</a>
-        <a href="#about">ПРО НАС</a>
+        <a href="#about" onclick="toggle_aboutus_popup()">ПРО НАС</a>
       </nav>
 
       <div class="search-bar">
@@ -60,27 +60,36 @@
 
       <div class="products_menu">
 
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
-        <div class="test_product"></div>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
+        <input type="button" class="test_product"></input>
 
       </div>
 
     </div>
 
-    <div class="popup" id="popup_1">
+
+
+    <!--Login/Registration Popups-->
+
+    <div class="popup" id="popup_login">
       <div class="overlay" onclick="toggle_login_popup()"></div>
       <div class="content">
         <div class="close_btn" onclick="toggle_login_popup()">&times;</div>
@@ -95,7 +104,38 @@
       </div>
     </div>
 
-    <div class="popup" id="popup_2">
+    <div class="popup" id="popup_reg">
+      <div class="overlay" onclick="toggle_registration_popup()"></div>
+      <div class="content">
+        <div class="close_btn" onclick="toggle_registration_popup()">&times;</div>
+        <h1 class="popup_main">Реєстрація</h1>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+         <input class="login_input" type="text" placeholder="gmail">
+          <input class="pass_input" type="password" placeholder="password">
+          <button class="login_button" type="submit">Зареєструватися</button>
+        </form>
+
+        </p><button onclick="toggle_registration_popup()"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
+      </div>
+    </div>
+
+
+    <!--About us Popup-->
+
+    <div class="popup" id="popup_about">
+      <div class="overlay" onclick="toggle_aboutus_popup()"></div>
+      <div class="content">
+        <div class="close_btn" onclick="toggle_aboutus_popup()">&times;</div>
+        <h1 class="popup_main">Про нас</h1>
+        <p>Номер телєфончіку:</p><a href="#" onclick="copy_on_clipboard('phone_copy')" id="phone_copy">+380 677 06 12 94</a>
+        <p>Поштова скринюлічка:</p><a href="#" onclick="copy_on_clipboard('gmail_copy')" id="gmail_copy">bebra@gmail.com</a>
+      </div>
+    </div>
+
+    <!--Product about Popup-->
+    
+    <div class="popup" id="popup_prduct">
       <div class="overlay" onclick="toggle_registration_popup()"></div>
       <div class="content">
         <div class="close_btn" onclick="toggle_registration_popup()">&times;</div>
