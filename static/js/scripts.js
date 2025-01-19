@@ -66,3 +66,7 @@ function openPopup() {
 function closePopup() {
     $("#popup").hide();
 }
+
+window.onload = function() {
+    openPopup();
+};

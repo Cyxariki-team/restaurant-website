@@ -104,7 +104,7 @@ def register_user(username, password):
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    toggle_login_popup()
+
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -118,7 +118,6 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    toggle_registration_popup()
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
