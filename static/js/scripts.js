@@ -20,3 +20,41 @@ function copy_on_clipboard(a){
     var CopyText = document.getElementById(a)
     navigator.clipboard.writeText(CopyText.textContent);
 }
+
+$("#popup_reg").submit(function(event) {
+        event.preventDefault();
+
+        var formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: formData,
+            success: function(response) {
+                if (response.message === "Registration successful.") {
+                    $("#popup").show();
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
+
+$("#popup_login").submit(function(event) {
+        event.preventDefault();
+
+        var formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: formData,
+            success: function(response) {
+                if (response.message === "Login successful.") {
+                    $("#popup").show();
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
