@@ -109,9 +109,9 @@ def login():
         password = request.form["password"]
 
         if verify_user(username, password):
-            return redirect(url_for("menu"))
+            return jsonify({"message": "Login successful", "redirect": url_for("menu")})
         else:
-            return render_template("index.html", message="Invalid username or password.")
+            return jsonify({"message": "Invalid username or password."})
 
     return render_template("index.html")
 
@@ -123,10 +123,10 @@ def register():
         confirm_password = request.form["confirm_password"]
 
         if password != confirm_password:
-            return render_template("index.html", message="Passwords do not match.")
+            return jsonify({"message": "Passwords do not match."})
 
         success, message = register_user(username, password)
-        return render_template("index.html", message=message)
+        return jsonify({"message": message})
 
     return render_template("index.html")
 
