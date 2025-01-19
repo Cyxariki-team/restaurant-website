@@ -109,7 +109,7 @@ def login():
         password = request.form["password"]
 
         if verify_user(username, password):
-            return render_template("index.html", message="Great job")
+            return redirect(url_for("menu"))
         else:
             return render_template("index.html", message="Invalid username or password.")
 

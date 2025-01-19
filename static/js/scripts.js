@@ -1,8 +1,10 @@
 function toggle_login_popup(){
+    window.open('https://restaurant-website-f8vs.onrender.com/login', '_blank')
     document.getElementById("popup_login").classList.toggle("active");
 }
 
 function toggle_registration_popup(){
+    window.open('https://restaurant-website-f8vs.onrender.com/register', '_blank')
     document.getElementById("popup_reg").classList.toggle("active");
 }
 
