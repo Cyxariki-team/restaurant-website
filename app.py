@@ -138,15 +138,18 @@ def menu():
     cursor.execute("SELECT * FROM products")
     products = cursor.fetchall()
 
-    cursor.execute("select * from filters JOIN filters_theme ON filters_theme_id = filters_theme.id")
+    cursor.execute("select * from filters_theme")
     filters_theme = cursor.fetchall()
+
+    cursor.execute("select * from filters JOIN filters_theme ON filters_theme_id = filters_theme.id")
+    filters_name = cursor.fetchall()
 
     cursor.close()
     connection.close()
 
 
 
-    return render_template('index.html', products=products, filters_theme=filters_theme)
+    return render_template('index.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():
