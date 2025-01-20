@@ -3,8 +3,9 @@
     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
 
 const d = new Date();
-let a = ('version 0.1.3 ', d.getTime()/10000);
-document.getElementById("VERSION").textContent=a;
+console.log('version 0.1.3');
+vers = 'version 0.1.3';
+document.getElementById("VERSION").textContent=vers;
 
 function toggle_popup(popup, closedby){
     document.getElementById(popup).classList.toggle("active");
@@ -16,7 +17,7 @@ function copy_on_clipboard(a){
     navigator.clipboard.writeText(CopyText.textContent);
 }
 
-$("#register_form").submit(function(event) {
+$("#popup_reg").submit(function(event) {
     event.preventDefault();
 
     var formData = {
