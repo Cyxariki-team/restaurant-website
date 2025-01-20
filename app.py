@@ -104,32 +104,31 @@ def register_user(username, password):
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    toggle_login_popup()
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
 
-        if verify_user(username, password):
-            return jsonify({"message": "Login successful", "redirect": url_for("menu")})
-        else:
-            return jsonify({"message": "Invalid username or password."})
-
-    return render_template("index.html")
+    success, message = verify_user(username, password)
+    if success:
+        return jsonify({"message": message, "redirect": url_for("menu")})
+    else:
+        return jsonify({"message": message}), 400
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        confirm_password = request.form["confirm_password"]
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    confirm_password = data.get("confirm_password")
 
-        if password != confirm_password:
-            return jsonify({"message": "Passwords do not match."})
+    if password != confirm_password:
+        return jsonify({"message": "Passwords do not match."}), 400
 
-        success, message = register_user(username, password)
+    success, message = register_user(username, password)
+    if success:
         return jsonify({"message": message})
-
-    return render_template("index.html")
+    else:
+        return jsonify({"message": message}), 400
 
 @app.route("/", methods=['GET'])
 def menu():
