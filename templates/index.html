@@ -52,9 +52,9 @@
       <div class="filters_menu">
 
         {% for filter_theme in filters_theme %}
-          <button type="button" class="filter">{{filters_theme}}</button>
+          <button type="button" class="filter">{{filters_theme.filters_theme_name}}</button>
           <div class="sub_filter" id="">
-            <a href="#">{{filters_theme.filters_name}}</a>
+            <a href="#">{{filters_name}}</a>
           </div>
         {% endfor %}
 
