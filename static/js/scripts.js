@@ -16,7 +16,7 @@ function copy_on_clipboard(a){
     navigator.clipboard.writeText(CopyText.textContent);
 }
 
-$("#popup_reg").submit(function(event) {
+/*$("#popup_reg").submit(function(event) {
         event.preventDefault();
 
         var formData = $(this).serialize();
@@ -52,7 +52,7 @@ $("#popup_login").submit(function(event) {
                 }
             }
         });
-    });
+    });*/
 
 //function openPopup() {
 //    $("#popup").show();
@@ -62,23 +62,20 @@ $("#popup_login").submit(function(event) {
 //    $("#popup").hide();
 //}
 
-
-const d = new Date();
-let a = `version 0.1.2, ${Math.floor(d.getTime() / 10000)}`;
-document.getElementById("VERSION").textContent = a;
-
-function toggle_popup(popup, closedBy) {
+/*
+function togglePopup(popup, closedBy) {
     const popupElement = document.getElementById(popup);
     popupElement.classList.toggle("active");
     console.log(`${popup} closed by: ${closedBy}`);
 }
 
-function copy_on_clipboard(elementId) {
+function copyToClipboard(elementId) {
     const copyText = document.getElementById(elementId).textContent;
     navigator.clipboard.writeText(copyText)
         .then(() => console.log("Copied to clipboard:", copyText))
         .catch(err => console.error("Failed to copy text:", err));
 }
+*/
 
 document.getElementById("popup_reg").addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -107,7 +104,6 @@ document.getElementById("popup_reg").addEventListener("submit", async function (
     }
 });
 
-// Обробка форми авторизації
 document.getElementById("popup_login").addEventListener("submit", async function (event) {
     event.preventDefault();
 
