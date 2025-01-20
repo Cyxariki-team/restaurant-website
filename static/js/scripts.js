@@ -3,7 +3,7 @@
     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
 
 const d = new Date();
-let a = ('version 0.1.2 ', d.getTime()/10000);
+let a = ('version 0.1.3 ', d.getTime()/10000);
 document.getElementById("VERSION").textContent=a;
 
 function toggle_popup(popup, closedby){
@@ -39,7 +39,7 @@ $("#register_form").submit(function(event) {
     });
 });
 
-$("#login_form").submit(function(event) {
+$("#popup_login").submit(function(event) {
     event.preventDefault();
 
     var formData = {
