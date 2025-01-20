@@ -152,19 +152,21 @@ def menu():
 
     return render_template('index.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
 
-def login():
-        if request.method == 'POST':
-            data = request.get_json()
-            if not data:
-                return jsonify({"message": "No JSON data provided"}), 400
+def register():
+    if request.method == 'POST':
+        data = request.get_json()
+        if not data:
+            return jsonify({"message": "No JSON data provided"}), 400
 
-            username = data.get("username")
-            password = data.get("password")
+        username = data.get("username")
+        password = data.get("password")
+        confirm_password = data.get("confirm_password")
 
-            if verify_user(username, password):
-                return jsonify({"message": "Login successful"})
-            else:
-                return jsonify({"message": "Invalid username or password."}), 401
+        if password != confirm_password:
+            return jsonify({"message": "Passwords do not match."}), 400
+
+        success, message = register_user(username, password)
+        return jsonify({"message": message})
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():

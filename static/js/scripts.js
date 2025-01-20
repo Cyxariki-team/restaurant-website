@@ -28,7 +28,7 @@ $("#popup_reg").submit(function(event) {
 
     $.ajax({
         type: "POST",
-        url: "/register",
+        url: "/",
         contentType: "application/json", // Встановлюємо заголовок
         data: JSON.stringify(formData), // Перетворюємо дані у формат JSON
         success: function(response) {
@@ -50,7 +50,7 @@ $("#popup_login").submit(function(event) {
 
     $.ajax({
         type: "POST",
-        url: "/",
+        url: "/login",
         contentType: "application/json", // Встановлюємо заголовок
         data: JSON.stringify(formData), // Перетворюємо дані у формат JSON
         success: function(response) {
