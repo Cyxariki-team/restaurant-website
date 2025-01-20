@@ -1,19 +1,10 @@
-function toggle_login_popup(){
-    window.location.href = 'https://restaurant-website-f8vs.onrender.com/login';
-    document.getElementById("popup_login").classList.toggle("active");
-}
+     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/login';
 
-function toggle_registration_popup(){
-    window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
-    document.getElementById("popup_reg").classList.toggle("active");
-}
-
-function toggle_aboutus_popup(){
-    document.getElementById("popup_about").classList.toggle("active");
-}
+    //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
 
 function toggle_popup(popup){
     document.getElementById(popup).classList.toggle("active");
+    console.log(popup);
 }
 
 function copy_on_clipboard(a){

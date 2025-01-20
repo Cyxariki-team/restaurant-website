@@ -19,7 +19,7 @@
 
       <nav>
         <a href="#menu">МЕНЮ</a>
-        <a href="#about" onclick="toggle_aboutus_popup()">ПРО НАС</a>
+        <a href="#about" onclick="toggle_popup('popup_about')">ПРО НАС</a>
       </nav>
 
       <div class="search-bar">
@@ -31,7 +31,7 @@
         <span>1</span>
       </div>
       
-      <button onclick="toggle_login_popup()" type="button" class="prof_logo">
+      <button onclick="toggle_popup('popup_login')" type="button" class="prof_logo">
         <img class="" src="../static/img/logo-img.png" alt="profile logo" height="100%">
       </button>
     </div>
@@ -52,9 +52,9 @@
       <div class="filters_menu">
 
         {% for filter_theme in filters_theme %}
-          <button type="button" class="filter">{{filters_theme}}</button>
+          <button type="button" class="filter">{{filters_theme.filters_theme_name}}</button>
           <div class="sub_filter" id="">
-            <a href="#">{{filters_name}}</a>
+            <a href="#">{{filters_theme.filters_name}}</a>
           </div>
         {% endfor %}
 
@@ -78,12 +78,29 @@
 
       <div class="products_menu">
           {% for product in products %}
-              <div class="test_product">
+              <button class="test_product" onclick="toggle_popup('popup_{{product.name}}')">
                 <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100%;height:65%;">
                 <h2>{{ product.name }}</h2>
                 <p>{{ product.description }}</p>
                 <p>Price: ${{ product.price }}</p>
-              </div>
+
+                <div class="popup" id="popup_{{product.name}}">
+                  <div class="overlay" onclick="toggle_popup('popup_{{product.name}}')"></div>
+                  <div class="content">
+                    <div class="close_btn" onclick="toggle_popup('popup_{{product.name}}')">&times;</div>
+                    
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:50%;height:85%;">
+                    <p>{{ product.name }}</p>
+
+                    <p>Price: ${{ product.price }}</p>
+                    
+                     <button class="login_button" type="submit">Увійти</button>
+                    </form>
+                    </p><button onclick="toggle_registration_popup()" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
+                  </div>
+                </div>
+
+              </button>
           {% endfor %}
       </div>
 
@@ -94,9 +111,9 @@
     <!--Login/Registration Popups-->
 
     <div class="popup" id="popup_login">
-      <div class="overlay" onclick="toggle_login_popup()"></div>
+      <div class="overlay" onclick="toggle_popup('popup_login')"></div>
       <div class="content">
-        <div class="close_btn" onclick="toggle_login_popup()">&times;</div>
+        <div class="close_btn" onclick="toggle_popup('popup_login')">&times;</div>
         <h1 class="popup_main">Вхід</h1>
 
         <form action="/login" method="POST">
@@ -105,14 +122,14 @@
 
          <button class="login_button" type="submit">Увійти</button>
         </form>
-        </p><button onclick="toggle_registration_popup()" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
+        </p><button onclick="toggle_popup('popup_reg')" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
       </div>
     </div>
 
     <div class="popup" id="popup_reg">
-      <div class="overlay" onclick="toggle_registration_popup()"></div>
+      <div class="overlay" onclick="toggle_popup('popup_reg')"></div>
       <div class="content">
-        <div class="close_btn" onclick="toggle_registration_popup()">&times;</div>
+        <div class="close_btn" onclick="toggle_popup('popup_reg')">&times;</div>
         <h1 class="popup_main">Реєстрація</h1>
 
         <form action="/register" method="POST">
@@ -123,7 +140,7 @@
             <button class="login_button" type="submit">Зареєструватися</button>
         </form>
 
-        </p><button onclick="toggle_registration_popup()"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
+        </p><button onclick="toggle_popup('popup_reg')"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
       </div>
     </div>
 
@@ -131,9 +148,9 @@
     <!--About us Popup-->
 
     <div class="popup" id="popup_about">
-      <div class="overlay" onclick="toggle_aboutus_popup()"></div>
+      <div class="overlay" onclick="toggle_popup('popup_about')"></div>
       <div class="content">
-        <div class="close_btn" onclick="toggle_aboutus_popup()">&times;</div>
+        <div class="close_btn" onclick="toggle_popup('popup_about')">&times;</div>
         <h1 class="popup_main">Про нас</h1>
         <p>Номер телєфончіку:</p><a href="#" onclick="copy_on_clipboard('phone_copy')" id="phone_copy">+380 677 06 12 94</a>
         <p>Поштова скринюлічка:</p><a href="#" onclick="copy_on_clipboard('gmail_copy')" id="gmail_copy">bebra@gmail.com</a>
