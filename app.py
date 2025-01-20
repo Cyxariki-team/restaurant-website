@@ -132,7 +132,7 @@ def login():
     else:
         return jsonify({"message": "Invalid username or password."}), 401
 
-@app.route("/", methods=['GET'])
+@app.route("/", methods=['GET', 'POST'])
 def menu():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
@@ -151,6 +151,20 @@ def menu():
 
 
     return render_template('index.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
+
+def login():
+        if request.method == 'POST':
+            data = request.get_json()
+            if not data:
+                return jsonify({"message": "No JSON data provided"}), 400
+
+            username = data.get("username")
+            password = data.get("password")
+
+            if verify_user(username, password):
+                return jsonify({"message": "Login successful"})
+            else:
+                return jsonify({"message": "Invalid username or password."}), 401
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():

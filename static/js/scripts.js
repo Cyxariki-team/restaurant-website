@@ -49,7 +49,7 @@ $("#login_form").submit(function(event) {
 
     $.ajax({
         type: "POST",
-        url: "/login",
+        url: "/",
         contentType: "application/json", // Встановлюємо заголовок
         data: JSON.stringify(formData), // Перетворюємо дані у формат JSON
         success: function(response) {
