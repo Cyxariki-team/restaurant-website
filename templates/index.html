@@ -52,7 +52,7 @@
       <div class="filters_menu">
 
         {% for filter_theme in filters_theme %}
-          <button type="button" class="filter">{{filters_theme.filter_theme}}</button>
+          <button type="button" class="filter">{{filters_theme}}</button>
           <div class="sub_filter" id="">
             <a href="#">{{filters_theme.filters_name}}</a>
           </div>
@@ -87,9 +87,9 @@
                  <!--Product about Popup-->
 
                 <div class="popup" id="popup_{{product.name}}">
-                  <div class="overlay" onclick="toggle_popup('popup_{{product.name}}')"></div>
+                  <div class="overlay" onclick="toggle_popup('popup_{{product.name}}', 'overlay')"></div>
                   <div class="content">
-                    <div class="close_btn" onclick="toggle_popup('popup_{{product.name}}')">&times;</div>
+                    <div class="close_btn" onclick="toggle_popup('popup_{{product.name}}', 'close_btn')">&times;</div>
                     
                     <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:50%;height:85%;">
                     <p>{{ product.name }}</p>
