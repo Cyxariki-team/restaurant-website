@@ -102,21 +102,12 @@ def register_user(username, password):
         if connection:
             connection.close()
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    data = request.get_json()
-    username = data.get("username")
-    password = data.get("password")
-
-    success, message = verify_user(username, password)
-    if success:
-        return jsonify({"message": message, "redirect": url_for("menu")})
-    else:
-        return jsonify({"message": message}), 400
-
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["POST"])
 def register():
     data = request.get_json()
+    if not data:
+        return jsonify({"message": "No JSON data provided"}), 400
+
     username = data.get("username")
     password = data.get("password")
     confirm_password = data.get("confirm_password")
@@ -125,10 +116,21 @@ def register():
         return jsonify({"message": "Passwords do not match."}), 400
 
     success, message = register_user(username, password)
-    if success:
-        return jsonify({"message": message})
+    return jsonify({"message": message})
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.get_json()
+    if not data:
+        return jsonify({"message": "No JSON data provided"}), 400
+
+    username = data.get("username")
+    password = data.get("password")
+
+    if verify_user(username, password):
+        return jsonify({"message": "Login successful"})
     else:
-        return jsonify({"message": message}), 400
+        return jsonify({"message": "Invalid username or password."}), 401
 
 @app.route("/", methods=['GET'])
 def menu():
