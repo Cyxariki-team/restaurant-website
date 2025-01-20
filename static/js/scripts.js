@@ -2,6 +2,8 @@
 
     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
 
+console.log('version 0.1');
+
 function toggle_popup(popup){
     document.getElementById(popup).classList.toggle("active");
     console.log(popup);
