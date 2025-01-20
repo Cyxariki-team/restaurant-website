@@ -84,6 +84,8 @@
                 <p>{{ product.description }}</p>
                 <p>Price: ${{ product.price }}</p>
 
+                 <!--Product about Popup-->
+
                 <div class="popup" id="popup_{{product.name}}">
                   <div class="overlay" onclick="toggle_popup('popup_{{product.name}}')"></div>
                   <div class="content">
@@ -150,24 +152,6 @@
         <h1 class="popup_main">Про нас</h1>
         <p>Номер телєфончіку:</p><a href="#" onclick="copy_on_clipboard('phone_copy')" id="phone_copy">+380 677 06 12 94</a>
         <p>Поштова скринюлічка:</p><a href="#" onclick="copy_on_clipboard('gmail_copy')" id="gmail_copy">bebra@gmail.com</a>
-      </div>
-    </div>
-
-    <!--Product about Popup-->
-    
-    <div class="popup" id="popup_prduct">
-      <div class="overlay" onclick="toggle_registration_popup()"></div>
-      <div class="content">
-        <div class="close_btn" onclick="toggle_registration_popup()">&times;</div>
-        <h1 class="popup_main">Реєстрація</h1>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-         <input class="login_input" type="text" placeholder="gmail">
-          <input class="pass_input" type="password" placeholder="password">
-          <button class="login_button" type="submit">Зареєструватися</button>
-        </form>
-
-        </p><button onclick="toggle_registration_popup()"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
       </div>
     </div>
 
