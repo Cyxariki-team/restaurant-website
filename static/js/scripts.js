@@ -16,43 +16,51 @@ function copy_on_clipboard(a){
     navigator.clipboard.writeText(CopyText.textContent);
 }
 
-/*$("#popup_reg").submit(function(event) {
-        event.preventDefault();
+$("#register_form").submit(function(event) {
+    event.preventDefault();
 
-        var formData = $(this).serialize();
+    var formData = {
+        username: $("#reg_username").val(),
+        password: $("#reg_password").val(),
+        confirm_password: $("#reg_confirm_password").val()
+    };
 
-        $.ajax({
-            type: "POST",
-            url: "/register",
-            data: formData,
-            success: function(response) {
-                if (response.message === "Registration successful.") {
-                    $("#popup").show();
-                } else {
-                    alert(response.message);
-                }
-            }
-        });
+    $.ajax({
+        type: "POST",
+        url: "/register",
+        contentType: "application/json", // Встановлюємо заголовок
+        data: JSON.stringify(formData), // Перетворюємо дані у формат JSON
+        success: function(response) {
+            alert(response.message);
+        },
+        error: function(xhr) {
+            alert("Error: " + xhr.responseText);
+        }
     });
+});
 
-$("#popup_login").submit(function(event) {
-        event.preventDefault();
+$("#login_form").submit(function(event) {
+    event.preventDefault();
 
-        var formData = $(this).serialize();
+    var formData = {
+        username: $("#login_username").val(),
+        password: $("#login_password").val()
+    };
 
-        $.ajax({
-            type: "POST",
-            url: "/login",
-            data: formData,
-            success: function(response) {
-                if (response.message === "Login successful.") {
-                    $("#popup").show();
-                } else {
-                    alert(response.message);
-                }
-            }
-        });
-    });*/
+    $.ajax({
+        type: "POST",
+        url: "/login",
+        contentType: "application/json", // Встановлюємо заголовок
+        data: JSON.stringify(formData), // Перетворюємо дані у формат JSON
+        success: function(response) {
+            alert(response.message);
+        },
+        error: function(xhr) {
+            alert("Error: " + xhr.responseText);
+        }
+    });
+});
+
 
 //function openPopup() {
 //    $("#popup").show();
@@ -62,71 +70,4 @@ $("#popup_login").submit(function(event) {
 //    $("#popup").hide();
 //}
 
-/*
-function togglePopup(popup, closedBy) {
-    const popupElement = document.getElementById(popup);
-    popupElement.classList.toggle("active");
-    console.log(`${popup} closed by: ${closedBy}`);
-}
 
-function copyToClipboard(elementId) {
-    const copyText = document.getElementById(elementId).textContent;
-    navigator.clipboard.writeText(copyText)
-        .then(() => console.log("Copied to clipboard:", copyText))
-        .catch(err => console.error("Failed to copy text:", err));
-}
-*/
-
-document.getElementById("popup_reg").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-        const response = await fetch("/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.message === "Registration successful.") {
-            document.getElementById("popup").style.display = "block";
-        } else {
-            alert(result.message);
-        }
-    } catch (error) {
-        console.error("Error during registration:", error);
-    }
-});
-
-document.getElementById("popup_login").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-        const response = await fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.message === "Login successful.") {
-            document.getElementById("popup").style.display = "block";
-        } else {
-            alert(result.message);
-        }
-    } catch (error) {
-        console.error("Error during login:", error);
-    }
-});
