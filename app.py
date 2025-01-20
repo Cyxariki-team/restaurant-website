@@ -118,7 +118,6 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    toggle_registration_popup()
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -138,10 +137,16 @@ def menu():
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM products")
     products = cursor.fetchall()
+
+    cursor.execute("select * from filters JOIN filters_theme ON filters_theme_id = filters_theme.id")
+    filters_theme = cursor.fetchall()
+
     cursor.close()
     connection.close()
 
-    return render_template('index.html', products=products)
+
+
+    return render_template('index.html', products=products, filters_theme=filters_theme)
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():
