@@ -17,6 +17,12 @@ function copy_on_clipboard(a){
     navigator.clipboard.writeText(CopyText.textContent);
 }
 
+var ele = reg_form;
+if(ele.addEventListener){
+    console.log("js dolbeb");
+    ele.addEventListener("submit", callback, false);
+}
+
 $("#popup_reg").submit(function(event) {
     event.preventDefault();
 
@@ -25,6 +31,8 @@ $("#popup_reg").submit(function(event) {
         password: $("#reg_password").val(),
         confirm_password: $("#reg_confirm_password").val()
     };
+
+    console.log("js dolbeb");
 
     $.ajax({
         type: "POST",
