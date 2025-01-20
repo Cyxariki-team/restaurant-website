@@ -50,10 +50,10 @@ $("#popup_login").submit(function(event) {
         });
     });
 
-function openPopup() {
-    $("#popup").show();
-}
+//function openPopup() {
+//    $("#popup").show();
+//}
 
-function closePopup() {
-    $("#popup").hide();
-}
+//function closePopup() {
+//    $("#popup").hide();
+//}
