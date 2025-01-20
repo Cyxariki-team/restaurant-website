@@ -74,9 +74,9 @@
       <div class="products_menu">
           {% for product in products %}
               <div class="test_product">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:200px;height:auto;">
                 <h2>{{ product.name }}</h2>
                 <p>{{ product.description }}</p>
-                <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:200px;height:auto;">
                 <p>Price: ${{ product.price }}</p>
               </div>
           {% endfor %}
