@@ -3,7 +3,8 @@
     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
 
 const d = new Date();
-console.log('version 0.1.2 ', d.getTime()/10000);
+let a = ('version 0.1.2 ', d.getTime()/10000);
+document.getElementById("VERSION").textContent=a;
 
 function toggle_popup(popup, closedby){
     document.getElementById(popup).classList.toggle("active");

@@ -3,6 +3,17 @@
     margin: 0;
 }
 
+.VERSION {
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    font-size: 40px;
+    color: #ffffff;
+    z-index: 100;
+}
+
 .background {
     position :fixed;
     display: flex;
