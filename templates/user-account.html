@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo-img.png" alt="logo" height="60" width="60">
+            <a href="#">Залупа-макі</a>
+        </div>
+        
+        <nav>
+            <a href="#">Меню</a>
+            <a href="#">Про нас</a>
+        </nav>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Пошук...">    
+
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>              
+            </div>
+        </div>
+        
+        <div class="icons-container">
+
+            <div class="cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"/><circle cx="10.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></svg>
+                
+            </div>
+               
+            <div class="user-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" color="#FFFFF" viewBox="0 0 24 24"><path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"/></svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner_box">
+        <input class="L_banner_arrrow" type="image" src="../static/img/logo-img.png" alt="LArrow"></input>
+  
+        <input class="banner" type="image" src="../static/img/logo-img.png" alt="There mus be AD"></input>
+  
+        <input class="R_banner_arrow" type="image" src="../static/img/logo-img.png" alt="LArrow"></input>
+      </div>
+
+    <div class="container">
+
+        <div class="profile-sidebar">
+
+            <form class="profile-form">
+                <div>
+                    <img src="img/white-user-member-guest-icon-png-image-701751695037005zdurfaim0y.png" alt="Аватар">
+                </div><br>
+
+                <input type="text" placeholder="Ваш псевдонім:" required><br>
+
+                <button type="reset">Змінити псевдонім</button><br>
+                <button type="reset">Змінити зображення</button><br>
+
+
+            </form>
+        </div>
+
+
+            <div class="profile-content">
+
+                <h1>Ваша інформація:</h1>
+
+                <form id="infoForm">
+                    <label for="name">Ім'я:</label>
+                    <input type="text" id="name" placeholder="Введіть ваше ім'я" required><br><br>
+    
+                    <label for="surname">Прізвище:</label>
+                    <input type="text" id="surname" placeholder="Введіть ваше прізвище" required><br><br>
+    
+                    <label for="phone">Номер телефону:</label>
+                    <input type="text" id="phone" placeholder="+380 123 456 789" required><br><br>
+    
+                    <label for="address">Адреса:</label>
+                    <input type="text" id="address" placeholder="Введіть вашу адресу" required><br><br>
+    
+                    <label for="email">Gmail:</label>
+                    <input type="email" id="email" placeholder="example@gmail.com" required><br><br>
+    
+                    <button type="reset">Змінити дані</button>
+                </form>
+
+            </div>
+
+    </div>
+</body>
+</html>
