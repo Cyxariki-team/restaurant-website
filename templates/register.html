@@ -47,13 +47,13 @@
         <h1 class="popup_main">Реєстрація</h1>
 
         <form action="/register" method="POST" id="reg_form">
-            <input class="login_input" type="text" id="reg-username" placeholder="gmail">
-            <input class="pass_input" type="password" id="reg-password" placeholder="password">
-            <input class="pass_input" type="password" id="reg-confirm_password" placeholder="confirm_password">
+            <input class="login_input" type="text" id="username" placeholder="gmail">
+            <input class="pass_input" type="password" id="password" placeholder="password">
+            <input class="pass_input" type="password" id="confirm_password" placeholder="confirm_password">
 
             <button class="login_button" type="submit">Зареєструватися</button>
         </form>
-      </p><button onclick="toggle_popup('popup_reg')"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
+      <button onclick="goToLogin(event)" class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
     </div>
 
 </body>

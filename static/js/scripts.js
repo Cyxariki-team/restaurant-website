@@ -19,6 +19,17 @@ if(ele.addEventListener){
     ele.addEventListener("submit", callback, false);
 }
 
+function goToRegister(event) {
+                event.preventDefault();
+                window.location.href = "/register";
+            }
+
+function goToLogin(event) {
+                event.preventDefault();
+                window.location.href = "/";
+            }
+
+
 /*$("#popup_reg").submit(function(event) {
     event.preventDefault();
 
