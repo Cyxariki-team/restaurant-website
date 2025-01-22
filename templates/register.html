@@ -21,7 +21,7 @@
         <p class="logo_text">ЗАЛУПА-МАКІ</p>
 
       <nav>
-        <a href="#menu" onclick="location.href = '../templates/index.html'">МЕНЮ</a>
+        <a href="#menu" onclick="location.href = 'menu.html'">МЕНЮ</a>
         <a href="#about" onclick="toggle_popup('popup_about')">ПРО НАС</a>
       </nav>
 
@@ -40,19 +40,20 @@
     </div>
 
     <!--Login/Registration Popups-->
-    <div class="popup" id="popup_login">
+
+    <div class="popup" id="popup_reg">
       <div class="content">
-        <div class="close_btn" onclick="toggle_popup('popup_login')">&times;</div>
-        <h1 class="popup_main">Вхід</h1>
+        <div class="close_btn" onclick="toggle_popup('popup_reg')">&times;</div>
+        <h1 class="popup_main">Реєстрація</h1>
 
-        <form action="" method="POST">
-         <input class="login_input" type="text" id="login-username" placeholder="gmail">
-         <input class="pass_input" type="password" id="login-password" placeholder="password">
+        <form action="/" method="POST" id="reg_form">
+            <input class="login_input" type="text" id="reg-username" placeholder="gmail">
+            <input class="pass_input" type="password" id="reg-password" placeholder="password">
+            <input class="pass_input" type="password" id="reg-confirm_password" placeholder="confirm_password">
 
-         <button class="login_button" type="submit">Увійти</button>
+            <button class="login_button" type="submit">Зареєструватися</button>
         </form>
-        </p><button onclick="toggle_popup('popup_reg')" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
-      </div>
+      </p><button onclick="toggle_popup('popup_reg')"2 class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
     </div>
 
 </body>
