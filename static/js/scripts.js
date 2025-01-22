@@ -4,7 +4,7 @@
 
 const d = new Date();
 console.log('version 0.1.3');
-vers = 'version 0.1.3';
+vers = 'version 0.1.4';
 document.getElementById("VERSION").textContent=vers;
 
 function toggle_popup(popup, closedby){

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link rel="stylesheet" href="../static/css/authorize.css">
+  <script src="../static/js/scripts.js"></script>
+</head>
+<body>
+
+    <!--TEST-->
+    <a href="" class="VERSION" id="VERSION" onclick="">Z</a>
+
+    <!--Main Title-->
+
+    <div class="main_title">
+
+        <img class="logo_img" src="../static/img/logo-img.png" alt="There must be logo">
+        <p class="logo_text">ЗАЛУПА-МАКІ</p>
+
+      <nav>
+        <a href="#menu" onclick="location.href = '../templates/index.html'">МЕНЮ</a>
+        <a href="#about" onclick="toggle_popup('popup_about')">ПРО НАС</a>
+      </nav>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Пошук...">
+      </div>
+
+      <div class="cart-icon">
+        <a href="#cart" class="cart">🛒</a>
+        <span>1</span>
+      </div>
+      
+      <button onclick="toggle_popup('popup_login')" type="button" class="prof_logo">
+        <img class="" src="../static/img/logo-img.png" alt="profile logo" height="100%">
+      </button>
+    </div>
+
+    <!--Login/Registration Popups-->
+    <div class="popup" id="popup_login">
+      <div class="content">
+        <div class="close_btn" onclick="toggle_popup('popup_login')">&times;</div>
+        <h1 class="popup_main">Вхід</h1>
+
+        <form action="" method="POST">
+         <input class="login_input" type="text" id="login-username" placeholder="gmail">
+         <input class="pass_input" type="password" id="login-password" placeholder="password">
+
+         <button class="login_button" type="submit">Увійти</button>
+        </form>
+        </p><button onclick="toggle_popup('popup_reg')" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
+      </div>
+    </div>
+
+</body>
+</html>
