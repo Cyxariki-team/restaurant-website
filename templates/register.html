@@ -54,6 +54,10 @@
             <button class="login_button" type="submit">Зареєструватися</button>
         </form>
       <button onclick="goToLogin(event)" class="registration_button" type="button"><span>Вже маєте аккаунту? </span>Увійти</button>
+          {% if message %}
+            <p>{{ message }}</p>
+          {% endif %}
+
       </div>
     </div>
 
