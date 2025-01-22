@@ -103,11 +103,6 @@ def register_user(username, password):
             connection.close()
 
 
-@app.route("/")
-def home():
-    return redirect(url_for('login'))
-
-
 @app.route("/register", methods=["POST"])
 def register():
     if request.method == "POST":
@@ -124,7 +119,7 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/", methods=["POST"])
 def login():
     if request.method == "POST":
         username = request.form["username"]
