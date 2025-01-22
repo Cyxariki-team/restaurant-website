@@ -1,7 +1,3 @@
-     //window.location.href = 'https://restaurant-website-f8vs.onrender.com/login';
-
-    //window.location.href = 'https://restaurant-website-f8vs.onrender.com/register';
-
 const d = new Date();
 console.log('version 0.1.3');
 vers = 'version 0.1.4';
@@ -23,7 +19,7 @@ if(ele.addEventListener){
     ele.addEventListener("submit", callback, false);
 }
 
-$("#popup_reg").submit(function(event) {
+/*$("#popup_reg").submit(function(event) {
     event.preventDefault();
 
     var formData = {
@@ -68,7 +64,7 @@ $("#popup_login").submit(function(event) {
             alert("Error: " + xhr.responseText);
         }
     });
-});
+});*/
 
 
 //function openPopup() {
