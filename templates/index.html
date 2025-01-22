@@ -1,3 +1,4 @@
+{#
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -56,4 +57,40 @@
     </div>
 
 </body>
+</html>
+#}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Website</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="front">
+            <h1>Autorization</h1>
+
+            <form method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="username" required><br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="password" required><br><br>
+
+                <button type="submit">Login</button>
+                <button onclick="goToRegister(event)">Register</button>
+            </form>
+        </div>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <script>
+            function goToRegister(event) {
+                event.preventDefault();
+                window.location.href = "/register";
+            }
+        </script>
+    </body>
 </html>
