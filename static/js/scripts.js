@@ -29,6 +29,13 @@ function goToLogin(event) {
                 window.location.href = "/";
             }
 
+function scrollToCategory(categoryId) {
+        const element = document.getElementById(categoryId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
             
 function test() {
     const search_value = document.getElementById('search_bar').value

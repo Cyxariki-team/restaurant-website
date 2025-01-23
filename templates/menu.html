@@ -64,16 +64,10 @@
         {% endfor %}
 
 
-        <button type="button" class="filter">Перше</button>
-        <div class="sub_filter" id="">        
-          <a href="#">Aboba</a>
-
-        </div>
-
-        <button type="button" class="filter">Друге</button>
-        <button type="button" class="filter">Сушки</button>
-        <button type="button" class="filter">Піцка</button>
-        <button type="button" class="filter">Ванючки</button>
+        <button onclick="scrollToCategory('category_1')" class="filter">Перше</button>
+        <button onclick="scrollToCategory('category_2')" class="filter">Друге</button>
+        <button onclick="scrollToCategory('category_3')" class="filter">Десерт</button>
+        <button onclick="scrollToCategory('category_4')" class="filter">Суші</button>
 
           {% if message %}
               <p>{{ message }}</p>
@@ -83,7 +77,7 @@
           <div id="product_container" class="products_menu">
 
             {% for category, items in products.items() %}
-                <h1 class="category-title">Категорія {{ category }}</h1>
+                <h1 id = "category_{{ category }}" class="category-title">Категорія {{ category }}</h1>
 
                 {% for product in items %}
                     <button id="product_{{ product.name }}" class="test_product" onclick="toggle_popup('popup_{{ product.name }}')">
