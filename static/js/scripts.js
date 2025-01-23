@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.6';
+vers = 'version 0.2.7';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -65,21 +65,21 @@ function searchProducts() {
                 product.categoryId = product.name;
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
-
                 product_container.appendChild(product_button);
 
                 let product_img = document.createElement("img");
+                product_button.appendChild(product_img)
 
                 let product_name = document.createElement("h2");
                 product_name.textContent = product.name;
-                product_button.appendChild(product_button)
+                product_button.appendChild(product_name)
 
                 let product_desc = document.createElement("p");
+                product_button.appendChild(product_desc)
 
                 let product_price = document.createElement("p");
                 product_price.textContent = product.price + 'грн';
-
-                resultsList.appendChild(li);
+                resultsList.appendChild(product_price);
             });
         })
         .catch(function(error) {
