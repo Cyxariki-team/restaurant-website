@@ -34,7 +34,7 @@
         <span>1</span>
       </div>
 
-      <button onclick="location.href = 'register'" type="button" class="prof_logo">
+      <button onclick="location.href = ''" type="button" class="prof_logo">
         <img class="" src="../static/img/logo-img.png" alt="profile logo" height="100%">
       </button>
     </div>
@@ -51,7 +51,7 @@
 
          <button class="login_button" type="submit">Увійти</button>
         </form>
-        <button onclick="goToRegister(event)" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
+        <button onclick="location.href = 'register'" class="registration_button" type="button"><span>Немає аккаунту? </span>Реєстрація</button>
           {% if message %}
             <p>{{ message }}</p>
           {% endif %}
