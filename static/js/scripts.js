@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.3.4';
+vers = 'version 0.3.5';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -78,6 +78,7 @@ function searchProducts() {
 
                 let product_img = document.createElement("img");
                 product_img.src = product.image_url;
+                product_img.setAttribute("style", "width:100%;height:65%;");
                 product_button.appendChild(product_img)
 
                 let product_name = document.createElement("h2");
