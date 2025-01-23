@@ -150,7 +150,7 @@ def menu():
     cursor.close()
     connection.close()
 
-    return render_template('menu.html', products=products)
+    return render_template('menu.html', products=categorized_products)
 
 @app.route("/search", methods=['GET'])
 def search():
