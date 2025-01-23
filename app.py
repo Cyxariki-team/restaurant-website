@@ -140,6 +140,13 @@ def menu():
     cursor.execute("SELECT * FROM products ORDER BY category")
     products = cursor.fetchall()
 
+    categorized_products = {}
+    for product in products:
+        category = product['category']
+        if category not in categorized_products:
+            categorized_products[category] = []
+        categorized_products[category].append(product)
+
     cursor.close()
     connection.close()
 
