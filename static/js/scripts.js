@@ -47,11 +47,22 @@ function searchProducts() {
         .then(response => response.json())
         .then(data => {
             let resultsList = document.getElementById("results");
-            resultsList.innerHTML = ""; // Очистка списку перед додаванням нових результатів
+            resultsList.innerHTML = "";
             
             data.forEach(function(product) {
-                let li = document.createElement("li"); // Правильний синтаксис
+                let li = document.createElement("li");
                 li.textContent = product.name + " - " + product.price + " грн";
+
+                let product_button = document.createElement("button");
+                product.id = product.name;
+                product_button.className = "test_product";
+                product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
+
+                document.getElementById("product_container").appendChild(product_button);
+
+
+
+
                 resultsList.appendChild(li);
             });
         })
@@ -59,6 +70,14 @@ function searchProducts() {
             console.error("Помилка:", error);
         });
 }
+
+
+<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
+<img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100%;height:65%;">
+<h2>{{ product.name }}</h2>
+<p>{{ product.description }}</p>
+<p>Price: ${{ product.price }}</p>
+</button> 
 
 
 /*const search = document.getElementById("search_bar");
