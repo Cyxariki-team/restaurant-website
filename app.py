@@ -137,21 +137,15 @@ def login():
 def menu():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM products")
+    cursor.execute("SELECT * FROM products ORDER BY category")
     products = cursor.fetchall()
-
-    cursor.execute("select * from filters_theme")
-    filters_theme = cursor.fetchall()
-
-    cursor.execute("select * from filters JOIN filters_theme ON filters_theme_id = filters_theme.id")
-    filters_name = cursor.fetchall()
 
     cursor.close()
     connection.close()
 
-    return render_template('menu.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
+    return render_template('menu.html', products=products)
 
-@app.route("/search" methods=['GET'])
+@app.route("/search", methods=['GET'])
 def search():
     query = request.args.get("query", "").strip().lower()
     connection = get_db_connection()
