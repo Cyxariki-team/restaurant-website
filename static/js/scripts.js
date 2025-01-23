@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.7';
+vers = 'version 0.2.8';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -79,7 +79,9 @@ function searchProducts() {
 
                 let product_price = document.createElement("p");
                 product_price.textContent = product.price + 'грн';
-                resultsList.appendChild(product_price);
+                product_button.appendChild(product_price);
+
+                resultsList.appendChild(li);
             });
         })
         .catch(function(error) {
