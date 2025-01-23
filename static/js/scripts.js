@@ -40,12 +40,26 @@ function test() {
 
 }   
 
+function bebra() {
+
+
+}
+
+
 const search = document.getElementById("search_bar");
 
 const handleSubmit = (e) => {
     console.log(e);
     e.preventDefault();
-    window.location.href = 'https://www.example.com/results.aspx?q=${encodeURIComponent(search.value)}';
+    //window.location.href = 'https://www.example.com/results.aspx?q=${encodeURIComponent(search.value)}';
+    var element = document.getElementById("product_container");
+    var numberOfChildren = element.children.length
+    for (let i = 0; i < numberOfChildren; i++){
+        console.log(element.length);
+        console.log(i);
+        document.gete = "none";
+    };
+   
 };
 
 /*$("#popup_reg").submit(function(event) {
