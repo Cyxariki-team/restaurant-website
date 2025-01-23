@@ -154,13 +154,13 @@ def menu():
 @app.route("/search" methods=['GET'])
 def search():
     query = request.args.get("query", "").strip().lower()
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    connection = get_db_connection()
+    cursor = connection.cursor()
     
     cursor.execute("SELECT * FROM products WHERE LOWER(name) LIKE ?", (f"%{query}%",))
     products = cursor.fetchall()
     
-    conn.close()
+    connection.close()
     
     return jsonify([dict(product) for product in products])
 
