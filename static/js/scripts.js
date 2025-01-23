@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.4';
+vers = 'version 0.2.5';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -54,6 +54,7 @@ function searchProducts() {
         .then(response => response.json())
         .then(data => {
             let resultsList = document.getElementById("results");
+            let product_container = document.getElementById("product_container");
             resultsList.innerHTML = "";
             
             data.forEach(function(product) {
@@ -65,7 +66,7 @@ function searchProducts() {
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
 
-                document.getElementById("product_container").appendChild(product_button);
+                product_container.appendChild(product_button);
 
 
 
