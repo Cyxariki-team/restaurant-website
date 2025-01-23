@@ -140,10 +140,19 @@ def menu():
     cursor.execute("SELECT * FROM products ORDER BY category")
     products = cursor.fetchall()
 
+    grouped_products = {}
+    for product in products:
+        category = product["category"]
+        if category not in grouped_products:
+            grouped_products[category] = []
+        grouped_products[category].append(product)
+
+
+
     cursor.close()
     connection.close()
 
-    return render_template('menu.html', products=products)
+    return render_template('menu.html', grouped_products=grouped_products)
 
 @app.route("/search")
 def search():
