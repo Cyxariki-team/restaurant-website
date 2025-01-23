@@ -137,8 +137,9 @@ def login():
 def menu():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM products")
+    cursor.execute("SELECT * FROM products ORDER BY category")
     products = cursor.fetchall()
+
 
     cursor.execute("select * from filters_theme")
     filters_theme = cursor.fetchall()
