@@ -41,17 +41,19 @@ body {
     height: 200px;
     margin-top: 70px;
     background-color:#ffffff00;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .L_banner_arrrow {
     height: 25%;
+    width: 50px;
     margin-left: 30%;
 }
 
 .R_banner_arrow {
     height: 25%;
+    width: 50px;
     margin-right: 30%;
 }
 
@@ -287,6 +289,16 @@ body {
     background-color:#fff;
     height: 235px;
     width: 180px;
+}
+
+.slider-container {
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slides {
