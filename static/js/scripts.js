@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.1';
+vers = 'version 0.3.6';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -48,29 +48,52 @@ function test() {
 };
 
 function searchProducts() {
+    document.getElementById("product_container").remove()
+
+    let product_container = document.createElement("div");
+    product_container.className = "products_menu";
+    product_container.setAttribute("id", "product_container");
+    document.getElementById("main_menu").appendChild(product_container);
+
     let query = document.getElementById("searchQuery").value;
 
     fetch(`/search?query=${query}`)
         .then(response => response.json())
         .then(data => {
             let resultsList = document.getElementById("results");
+            let product_container = document.getElementById("product_container");
+
             resultsList.innerHTML = "";
             
             data.forEach(function(product) {
-                let li = document.createElement("li");
-                li.textContent = product.name + " - " + product.price + " грн";
+                //let li = document.createElement("li");
+                //li.textContent = product.name + " - " + product.price + " грн";
 
                 let product_button = document.createElement("button");
-                product.id = product.name;
+
+                product_button.setAttribute("id", "product_{{ product.name }}");
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
+                product_container.appendChild(product_button);
 
-                document.getElementById("product_container").appendChild(product_button);
+                let product_img = document.createElement("img");
+                product_img.src = product.image_url;
+                product_img.setAttribute("style", "width:100%;height:65%;");
+                product_button.appendChild(product_img)
 
+                let product_name = document.createElement("h2");
+                product_name.textContent = product.name;
+                product_button.appendChild(product_name)
 
+                let product_desc = document.createElement("p");
+                product_desc.textContent = product.description;
+                product_button.appendChild(product_desc)
 
+                let product_price = document.createElement("p");
+                product_price.textContent = product.price + 'грн';
+                product_button.appendChild(product_price);
 
-                resultsList.appendChild(li);
+                //resultsList.appendChild(li);
             });
         })
         .catch(function(error) {
