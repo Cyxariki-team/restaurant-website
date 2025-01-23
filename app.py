@@ -145,19 +145,17 @@ def menu():
 
     return render_template('menu.html', products=products)
 
-@app.route("/search", methods=['GET'])
+@app.route("/search")
 def search():
     query = request.args.get("query", "").strip().lower()
-    connection = get_db_connection()
-    cursor = connection.cursor()
     
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Отримуємо результати як словники
     cursor.execute("SELECT * FROM products WHERE LOWER(name) COLLATE utf8mb4_general_ci LIKE %s", (f"%{query}%",))
-
     products = cursor.fetchall()
     
     connection.close()
-    
-    return jsonify([dict(product) for product in products])
+    return jsonify(products)  # Повертаємо JSON
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():
