@@ -59,6 +59,7 @@ body {
     display: block;
     width: 100%;
     margin-bottom: 20px;
+    scroll-margin-top: 50px;
 }
 
 .filters_menu {
@@ -135,7 +136,6 @@ body {
 .prof_logo {
     height : 90%;
     margin-right : 25px;
-
 }
 
 .popup .overlay {
