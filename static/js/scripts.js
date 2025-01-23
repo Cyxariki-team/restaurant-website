@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.3.5';
+vers = 'version 0.3.6';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -66,8 +66,8 @@ function searchProducts() {
             resultsList.innerHTML = "";
             
             data.forEach(function(product) {
-                let li = document.createElement("li");
-                li.textContent = product.name + " - " + product.price + " грн";
+                //let li = document.createElement("li");
+                //li.textContent = product.name + " - " + product.price + " грн";
 
                 let product_button = document.createElement("button");
 
@@ -93,7 +93,7 @@ function searchProducts() {
                 product_price.textContent = product.price + 'грн';
                 product_button.appendChild(product_price);
 
-                resultsList.appendChild(li);
+                //resultsList.appendChild(li);
             });
         })
         .catch(function(error) {
