@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.8';
+vers = 'version 0.2.9';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -48,6 +48,8 @@ function test() {
 };
 
 function searchProducts() {
+    remove(document.getElementById("product_container"))
+
     let query = document.getElementById("searchQuery").value;
 
     fetch(`/search?query=${query}`)
@@ -55,6 +57,7 @@ function searchProducts() {
         .then(data => {
             let resultsList = document.getElementById("results");
             let product_container = document.getElementById("product_container");
+
             resultsList.innerHTML = "";
             
             data.forEach(function(product) {
