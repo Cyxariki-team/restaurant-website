@@ -151,7 +151,8 @@ def search():
     connection = get_db_connection()
     cursor = connection.cursor()
     
-    cursor.execute("SELECT * FROM products WHERE LOWER(name) LIKE ?", (f"%{query}%",))
+    cursor.execute("SELECT * FROM products WHERE LOWER(name) COLLATE utf8mb4_general_ci LIKE %s", (f"%{query}%",))
+
     products = cursor.fetchall()
     
     connection.close()
