@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.9';
+vers = 'version 0.3.0';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
@@ -48,7 +48,7 @@ function test() {
 };
 
 function searchProducts() {
-    remove(document.getElementById("product_container"))
+    document.getElementById("product_container").remove()
 
     let query = document.getElementById("searchQuery").value;
 
