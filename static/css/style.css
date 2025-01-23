@@ -257,6 +257,11 @@ body {
     padding: 5px;
 }
 
+.search_button {
+    height: 40px;
+    width: 40px;
+}
+
 .sub_filter {
     width: 100%;
     margin-top: 10px;

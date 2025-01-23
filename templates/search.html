@@ -26,10 +26,8 @@
       </nav>
 
       <div class="search-bar">
-        <form onsubmit="handleSubmit(event)">
-          <input id="search_bar" type="text" placeholder="Пошук..." name="text">
-          <button id="search_button" class="search_button">Search</button>
-        </form>
+        <input id="search_bar" type="text" placeholder="Пошук...">
+        <button onclick="test()" id="search_button" class="search_button">Search</button>
       </div>
 
       <div class="cart-icon">
@@ -84,7 +82,7 @@
 
       <div class="products_menu">
           {% for product in products %}
-              <button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
+              <button class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
                 <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100%;height:65%;">
                 <h2>{{ product.name }}</h2>
                 <p>{{ product.description }}</p>

@@ -29,6 +29,24 @@ function goToLogin(event) {
                 window.location.href = "/";
             }
 
+            
+function test() {
+    const search_value = document.getElementById('search_bar').value
+    window.location.href = "search.html";
+
+
+
+   console.log(search_value);
+
+}   
+
+const search = document.getElementById("search_bar");
+
+const handleSubmit = (e) => {
+    console.log(e);
+    e.preventDefault();
+    window.location.href = 'https://www.example.com/results.aspx?q=${encodeURIComponent(search.value)}';
+};
 
 /*$("#popup_reg").submit(function(event) {
     event.preventDefault();
