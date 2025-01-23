@@ -80,11 +80,10 @@
           {% endif %}
 
       </div>
-            <h1 style="text-align: center">Menu</h1>
           <div id="product_container" class="products_menu">
 
             {% for category, items in products.items() %}
-                <h1>Категорія {{ category }}</h1><br><br>
+                <h1 class="category-title">Категорія {{ category }}</h1>
 
                 {% for product in items %}
                     <button id="product_{{ product.name }}" class="test_product" onclick="toggle_popup('popup_{{ product.name }}')">

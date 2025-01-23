@@ -55,6 +55,12 @@ body {
     margin-right: 30%;
 }
 
+.category-title {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .filters_menu {
     display: block;
     width: 20%;
