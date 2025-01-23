@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.2.2';
+vers = 'version 0.2.3';
 console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
