@@ -72,12 +72,12 @@ function searchProducts() {
 }
 
 
-<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
+/*<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
 <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100%;height:65%;">
 <h2>{{ product.name }}</h2>
 <p>{{ product.description }}</p>
 <p>Price: ${{ product.price }}</p>
-</button> 
+</button> */
 
 
 /*const search = document.getElementById("search_bar");
