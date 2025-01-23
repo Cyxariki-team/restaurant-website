@@ -53,12 +53,12 @@ function searchProducts() {
                 let li = document.createElement("li");
                 li.textContent = product.name + " - " + product.price + " грн";
 
-                let product_button = document.createElement("button");
+               /* let product_button = document.createElement("button");
                 product.id = product.name;
                 product_button.className = "test_product";
-                product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
+                product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'"; */
 
-                document.getElementById("product_container").appendChild(product_button);
+                //document.getElementById("product_container").appendChild(product_button);
 
 
 
