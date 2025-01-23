@@ -6,7 +6,7 @@
   <title>Restaurant</title>
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link rel="stylesheet" href="../static/css/style.css">
-  <script src="../static/js/scripts.js"></script>
+  <script src="../static/js/scripts.js" defer></script>
 </head>
 <body>
 
@@ -26,10 +26,9 @@
       </nav>
 
       <div class="search-bar">
-        <form onsubmit="handleSubmit(event)">
-          <input id="search_bar" type="text" placeholder="Пошук..." name="text">
-          <button id="search_button" class="search_button">Search</button>
-        </form>
+          <input id="searchQuery" type="text" placeholder="Пошук..." name="text">
+          <button onclick="searchProducts()" class="search_button">Search</button>
+          <ul id="results"></ul>
       </div>
 
       <div class="cart-icon">

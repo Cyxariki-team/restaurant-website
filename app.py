@@ -151,6 +151,18 @@ def menu():
 
     return render_template('menu.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
 
+@app.route("/search")
+def search():
+    query = request.args.get("query", "").strip().lower()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT * FROM products WHERE LOWER(name) LIKE ?", (f"%{query}%",))
+    products = cursor.fetchall()
+    
+    conn.close()
+    
+    return jsonify([dict(product) for product in products])
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():

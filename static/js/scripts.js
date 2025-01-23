@@ -38,15 +38,30 @@ function test() {
 
    console.log(search_value);
 
-}   
+};
 
-function bebra() {
+function searchProducts() {
+    let query = document.getElementById("searchQuery").value;
 
-
+    fetch(`/search?query=${query}`)
+        .then(response => response.json())
+        .then(data => {
+            let resultsList = document.getElementById("results");
+            resultsList.innerHTML = ""; // Очистка списку перед додаванням нових результатів
+            
+            data.forEach(function(product) {
+                let li = document.createElement("li"); // Правильний синтаксис
+                li.textContent = product.name + " - " + product.price + " грн";
+                resultsList.appendChild(li);
+            });
+        })
+        .catch(function(error) {
+            console.error("Помилка:", error);
+        });
 }
 
 
-const search = document.getElementById("search_bar");
+/*const search = document.getElementById("search_bar");
 
 const handleSubmit = (e) => {
     console.log(e);
@@ -63,7 +78,11 @@ const handleSubmit = (e) => {
         }; 
     };
    
-};
+};*/
+
+
+
+
 
 /*$("#popup_reg").submit(function(event) {
     event.preventDefault();
