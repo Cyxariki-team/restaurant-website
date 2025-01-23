@@ -54,10 +54,13 @@ const handleSubmit = (e) => {
     //window.location.href = 'https://www.example.com/results.aspx?q=${encodeURIComponent(search.value)}';
     var element = document.getElementById("product_container");
     var numberOfChildren = element.children.length
+    const search_value = document.getElementById("search_bar").value;
     for (let i = 0; i < numberOfChildren; i++){
-        console.log(element.length);
         console.log(i);
         document.gete = "none";
+        if (element.children.item(i).id != search_value) {
+            console.log(element.children.item(i));
+        }; 
     };
    
 };
