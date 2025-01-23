@@ -152,7 +152,7 @@ def menu():
 
     return render_template('menu.html', products=products, filters_theme=filters_theme, filters_name=filters_name)
 
-@app.route("/search" methods=['GET'])
+@app.route("/search", methods=['GET'])
 def search():
     query = request.args.get("query", "").strip().lower()
     conn = get_db_connection()
