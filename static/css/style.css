@@ -127,6 +127,8 @@ body {
     justify-content: center;
     width: 80%;
     height: 2000px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: rgba(237, 237, 237, 1)
 }
 
