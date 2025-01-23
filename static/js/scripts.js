@@ -36,16 +36,7 @@ function scrollToCategory(categoryId) {
         }
     }
 
-            
-function test() {
-    const search_value = document.getElementById('search_bar').value
-    window.location.href = "search.html";
 
-
-
-   console.log(search_value);
-
-};
 
 function searchProducts() {
     document.getElementById("product_container").remove()
@@ -100,6 +91,41 @@ function searchProducts() {
             console.error("Помилка:", error);
         });
 }
+
+const slides = document.querySelector('.slides');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let currentIndex = 0;
+
+        function updateButtons() {
+            // Buttons are always enabled in a looped slider
+        }
+
+        function showSlide(index) {
+            const slideWidth = document.querySelector('.slider-container').clientWidth;
+            slides.style.transform = `translateX(-${index * slideWidth}px)`;
+            currentIndex = index;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex === 0) {
+                showSlide(totalSlides - 1);
+            } else {
+                showSlide(currentIndex - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex === totalSlides - 1) {
+                showSlide(0);
+            } else {
+                showSlide(currentIndex + 1);
+            }
+        });
+
+        // Initialize
+        updateButtons();
 
 
 /*<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
