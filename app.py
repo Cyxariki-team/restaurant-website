@@ -140,31 +140,23 @@ def menu():
     cursor.execute("SELECT * FROM products ORDER BY category")
     products = cursor.fetchall()
 
-    grouped_products = {}
-    for product in products:
-        category = product["category"]
-        if category not in grouped_products:
-            grouped_products[category] = []
-        grouped_products[category].append(product)
-
-
-
     cursor.close()
     connection.close()
 
-    return render_template('menu.html', grouped_products=grouped_products)
+    return render_template('menu.html', products=products)
 
-@app.route("/search")
+@app.route("/search", methods=['GET'])
 def search():
     query = request.args.get("query", "").strip().lower()
-    
-    connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)  # Отримуємо результати як словники
-    cursor.execute("SELECT * FROM products WHERE LOWER(name) COLLATE utf8mb4_general_ci LIKE %s", (f"%{query}%",))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM products WHERE LOWER(name) LIKE ?", (f"%{query}%",))
     products = cursor.fetchall()
-    
-    connection.close()
-    return jsonify(products)  # Повертаємо JSON
+
+    conn.close()
+
+    return jsonify([dict(product) for product in products])
 
 # @app.route('/add-product', methods=['GET', 'POST'])
 # def add_product():
