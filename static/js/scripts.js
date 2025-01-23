@@ -1,6 +1,6 @@
 const d = new Date();
-console.log('version 0.1.3');
-vers = 'version 0.1.4';
+vers = 'version 0.1.5';
+console.log(vers);
 document.getElementById("VERSION").textContent=vers;
 
 function toggle_popup(popup, closedby){
