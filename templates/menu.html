@@ -109,7 +109,7 @@
                         <div class="overlay" onclick="toggle_popup('popup_{{ product.name }}', 'overlay')"></div>
                         <div class="content">
                             <div class="close_btn" onclick="toggle_popup('popup_{{ product.name }}', 'close_btn')">&times;</div>
-                            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:50%;height:85%;">
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 5px;">
                             <p>{{ product.name }}</p>
                             <p>Price: ${{ product.price }}</p>
                         </div>
