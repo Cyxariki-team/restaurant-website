@@ -27,7 +27,7 @@
         <a href="#cart" class="cart" onclick="bebra()">🛒</a>
         <span></span>
       </div>
-
+        <h1>{{ username }}</h1>
       <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">
         <img class="" src="../static/img/130-1300400_user-hd-png-download.png" alt="profile logo" height="100%">
       </button>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="account-menu">
-            <h1 class="center-title">Ваш обліковий запис</h1><br><br>
+            <h1 class="center-title">З поверненням {{ username }}!</h1><br><br>
             <div class="history-box">
                 <h2>Ваша історія покупок</h2>
                 <textarea id="textarea-box" placeholder="поки що тут нічого немає"></textarea>

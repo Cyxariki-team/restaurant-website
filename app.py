@@ -155,10 +155,11 @@ def menu():
 
     return render_template('menu.html', products=categorized_products, username=username)
 
-@app.route('/user-account')
+@app.route('/user-account', methods=['GET', 'POST'])
 def user_account():
+    username = session.get('username')
 
-    return render_template("user-account.html")
+    return render_template("user-account.html", username=username)
 
 
 @app.route("/search")
