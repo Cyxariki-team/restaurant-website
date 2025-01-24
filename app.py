@@ -152,6 +152,12 @@ def menu():
 
     return render_template('menu.html', products=categorized_products)
 
+@app.route('/user-account')
+def user_account():
+
+    return render_template("user-account.html")
+
+
 @app.route("/search")
 def search():
     query = request.args.get("query", "").strip().lower()
@@ -186,7 +192,7 @@ def add_product():
             cursor.close()
             connection.close()
 
-        return redirect(url_for('menu'))
+        return redirect(url_for('user_account'))
     return render_template('add-product.html')
 
 if __name__ == "__main__":
