@@ -177,6 +177,7 @@ def add_product():
         description = request.form['description']
         price = request.form['price']
         image = request.files['image']
+        category = request.form['category']
 
         if image:
             response = cloudinary.uploader.upload(image)
@@ -185,8 +186,8 @@ def add_product():
             connection = get_db_connection()
             cursor = connection.cursor()
             cursor.execute(
-                "INSERT INTO products (name, description, image_url, price) VALUES (%s, %s, %s, %s)",
-                (name, description, imgur_link, price),
+                "INSERT INTO products (name, description, image_url, price, category) VALUES (%s, %s, %s, %s, %s)",
+                (name, description, imgur_link, price, category),
             )
             connection.commit()
             cursor.close()

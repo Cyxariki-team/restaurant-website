@@ -11,16 +11,24 @@
         <div class="lelele">
             <h1 class="lable">Додавання товару</h1>
                 <form action="/add-product" method="POST" enctype="multipart/form-data">
-            <input class="prod" type="text" id="name" name="name" placeholder="Назва"><br><br>
+                    <input class="prod" type="text" id="name" name="name" placeholder="Назва"><br><br>
 
-            <textarea class="prod" id="description" name="description" placeholder="Опис" required></textarea><br><br>
+                    <textarea class="prod" id="description" name="description" placeholder="Опис" required></textarea><br><br>
 
-            <input class="prod" type="number" id="price" name="price" step="1" placeholder="Ціна" required><br><br>
+                    <input class="prod" type="number" id="price" name="price" step="1" placeholder="Ціна" required><br><br>
 
-            <label class="prod" for="image">Фотографія:</label><br><br> 
-            <input class="prod" type="file" id="image" name="image" accept="image/*" required><br><br>
+                    <select id="category" class="prod" name="category" required>
+                        <option value="1">Перша страва</option>
+                        <option value="2">Друга</option>
+                        <option value="3">Десерт</option>
+                        <option value="4">Суші</option>
+                    </select><br><br>
 
-            <button class="prodsubm" type="submit">Add Product</button>
+                    <label class="prod" for="image">Фотографія:</label><br><br>
+                    <input class="prod" type="file" id="image" name="image" accept="image/*" required><br><br>
+
+
+                    <button class="prodsubm" type="submit">Add Product</button>
                 </form>
         </div>
         
