@@ -401,6 +401,14 @@ body {
 
 .history-box {
     background-color: lightgray;
+    min-height: 400px;
+    padding: 15px;
+    overflow-y: auto;
+    border: 1px solid #444444;
+}
+
+.history-box ul {
+    padding-left: 20px;
 }
 
 #textarea-box {
