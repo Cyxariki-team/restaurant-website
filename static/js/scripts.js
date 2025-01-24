@@ -1,6 +1,7 @@
 const d = new Date();
 vers = 'version 0.3.9';
 console.log(vers);
+let totalAmount = 0;
 document.getElementById("VERSION").textContent=vers;
 
 const slides = document.querySelector('.slides');
@@ -38,7 +39,7 @@ nextButton.addEventListener('click', () => {
 updateButtons();
 
 function toggleCart(event) {
-  event.preventDefault(); // Запобігти переходу по посиланню
+  event.preventDefault();
   const cart = document.getElementById('cart');
   cart.classList.toggle('open');
 }
@@ -55,10 +56,14 @@ function addToCart(event, productName, productPrice) {
 
   const cartItems = document.getElementById('cart-items');
   const cartEmpty = document.getElementById('cart-empty');
+  const cartTotal = document.getElementById('cart-total');
 
   const listItem = document.createElement('li');
   listItem.textContent = `${productName} - $${productPrice}`;
   cartItems.appendChild(listItem);
+
+  totalAmount += productPrice;
+  cartTotal.textContent = totalAmount.toFixed(2);
 
   cartEmpty.style.display = 'none';
 }

@@ -41,6 +41,11 @@
             <button class="close-cart-btn" onclick="toggleCart(event)">Закрити</button>
             <ul id="cart-items"></ul>
             <p id="cart-empty">Кошик порожній</p>
+            <div id="cart-total-container">
+                <p>Загальна сума: $<span id="cart-total">0</span></p>
+            </div>
+            <button class="buy-button">Купити</button>
+
         </div>
       
       <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">
@@ -108,7 +113,7 @@
                         <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width:100%;height:65%;">
                         <h2>{{ product.name }}</h2>
                         <p>{{ product.description }}</p>
-                        <p>Price: ${{ product.price }}</p>
+                        <p>Price: ₴{{ product.price }}</p>
                     </button>
 
                     <!--Product about Popup-->
@@ -118,7 +123,7 @@
                             <div class="close_btn" onclick="toggle_popup('popup_{{ product.name }}', 'close_btn')">&times;</div>
                             <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 30px;">
                             <p>{{ product.name }}</p>
-                            <p>Price: ${{ product.price }}</p>
+                            <p>Price: ₴{{ product.price }}</p>
                             <button class="add-to-cart-btn" onclick="addToCart(event, '{{ product.name }}', {{ product.price }})">Додати в кошик</button>
                         </div>
 
