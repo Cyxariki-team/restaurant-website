@@ -11,6 +11,7 @@ import cloudinary
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+app.secret_key = os.getenv('SECRET_KEY')
 
 logging.basicConfig(level=logging.INFO)
 
