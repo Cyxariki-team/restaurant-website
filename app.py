@@ -190,12 +190,27 @@ def menu():
 @login_required
 def user_account():
     username = session.get('username')
+    connection = None
+    user_logs = []
+
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute("SELECT total_amount, log_time, comments FROM log WHERE username = %s", (username,))
+        user_logs = cursor.fetchall()
+
+    except mysql.connector.Error as err:
+        logging.error(f"Database error: {err}")
+
+    finally:
+        if connection:
+            connection.close()
 
     if request.method == "POST":
         session.clear()
         return redirect(url_for("login"))
-    return render_template("user-account.html", username=username)
 
+    return render_template("user-account.html", username=username, user_logs=user_logs)
 
 @app.route("/search")
 def search():

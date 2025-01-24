@@ -73,8 +73,18 @@
             <h1 class="center-title">З поверненням {{ username }}!</h1><br><br>
             <div class="history-box">
                 <h2>Ваша історія покупок</h2>
-                <textarea id="textarea-box" placeholder="поки що тут нічого немає"></textarea>
-            </div>
+                <ul>
+                    {% for log in user_logs %}
+                        <li>
+                            <p><strong>Загальна сума:</strong> ${{ log.total_amount }}</p>
+                            <p><strong>Час:</strong> {{ log.log_time }}</p>
+                            <p><strong>Коментарі:</strong> {{ log.comments }}</p>
+                        </li>
+                    {% else %}
+                        <p>Немає записів.</p>
+                    {% endfor %}
+                </ul>
+            </div><br><br>
             <p>Тут ви можете добавляти товар на сайт</p>
             <button onclick="window.location.href = '/add-product'" type="button" >Перейти до добавленню продукту -></button>
         </div>
