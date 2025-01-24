@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, jsonify
+from flask import Flask, request, render_template, redirect, url_for, jsonify, session
 import requests
 from werkzeug.utils import secure_filename
 import mysql.connector
@@ -126,6 +126,7 @@ def login():
         password = request.form["password"]
 
         if verify_user(username, password):
+            session['username'] = username
             return redirect(url_for("menu"))
         else:
             return render_template("index.html", message="Invalid username or password.")
@@ -139,6 +140,7 @@ def menu():
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM products WHERE price > 0 ORDER BY category")
     products = cursor.fetchall()
+    username = session.get('username')
 
     categorized_products = {}
     for product in products:
@@ -150,7 +152,7 @@ def menu():
     cursor.close()
     connection.close()
 
-    return render_template('menu.html', products=categorized_products)
+    return render_template('menu.html', products=categorized_products, username=username)
 
 @app.route('/user-account')
 def user_account():
