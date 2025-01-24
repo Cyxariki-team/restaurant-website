@@ -66,6 +66,7 @@ function addToCart(event, productName, productPrice) {
   cartTotal.textContent = totalAmount.toFixed(2);
 
   cartEmpty.style.display = 'none';
+  document.getElementById('total-amount-input').value = totalAmount.toFixed(2);
 }
 
 function toggle_popup(popup, closedby){

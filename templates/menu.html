@@ -44,8 +44,11 @@
             <div id="cart-total-container">
                 <p>Загальна сума біткоїнів: <span id="cart-total">0</span></p>
             </div>
-            <button class="buy-button">Купити</button>
 
+            <form method="POST" action="{{ url_for('menu') }}">
+                <input type="hidden" name="total_amount" id="total-amount-input">
+                <button type="submit" class="buy-button" id="buy-button">Купити</button>
+            </form>
         </div>
       <h1 style="color:white;">{{ username }}</h1>
       <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">

@@ -160,6 +160,24 @@ def menu():
             categorized_products[category] = []
         categorized_products[category].append(product)
 
+    if request.method == 'POST':
+        # Отримуємо дані з форми
+        total_amount = request.form.get('total_amount')
+        log_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # Час для запису
+        username = session.get('username')
+
+        # Перевірка на наявність всіх полів
+        if total_amount and username:
+            try:
+                # Записуємо в таблицю log
+                cursor.execute("INSERT INTO log (username, total_amount, log_time) VALUES (%s, %s, %s)",
+                               (username, total_amount, log_time))
+                connection.commit()
+            except mysql.connector.Error as err:
+                logging.error(f"Error while inserting log data: {err}")
+
+        return redirect(url_for('menu'))
+
     cursor.close()
     connection.close()
 
