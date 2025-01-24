@@ -4,41 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
-    <link rel="stylesheet" href="../static/css/user-acc.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/scripts.js" defer></script>
 </head>
 <body> 
-    <header>
-        <div class="logo">
-            <img src="img/logo-imgs.png" alt="logo" height="60" width="60">
-            <a href="#">GOLDEN FORK</a>
-        </div>
-        
-        <nav>
-            <a href="#menu" onclick="window.location.href = 'menu'">МЕНЮ</a>
-            <a href="#">Про нас</a>
-        </nav>
+    <div class="main_title">
 
-        <div class="search-bar">
-            <input type="text" placeholder="Пошук...">    
+        <img class="logo_img" src="../static/img/Golden_Fork_logo.png" alt="There must be logo">
 
-            <div class="search-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>              
-            </div>
-        </div>
-        
-        <div class="icons-container">
+      <nav>
+        <a href="#menu" onclick="location.href = 'menu'">МЕНЮ</a>
+        <a href="#about" onclick="toggle_popup('popup_about')">ПРО НАС</a>
+      </nav>
 
-            <div class="cart-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"/><circle cx="10.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></svg>
-                
-            </div>
-               
-            <div class="user-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" color="#FFFFF" viewBox="0 0 24 24"><path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"/></svg>
-            </div>
-        </div>
-    </header>
+      <div class="search-bar">
+          <input id="searchQuery" type="text" placeholder="Пошук..." name="text">
+          <button onclick="searchProducts()" class="search_button">🔍</button>
+          <ul id="results"></ul>
+      </div>
+
+      <div class="cart-icon">
+        <a href="#cart" class="cart" onclick="bebra()">🛒</a>
+        <span></span>
+      </div>
+
+      <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">
+        <img class="" src="../static/img/130-1300400_user-hd-png-download.png" alt="profile logo" height="100%">
+      </button>
+    </div>
+
+    <!--Banner-->
 
     <div class="banner_box">
         <button class="L_banner_arrrow" id="prev">&#8592;</button>
@@ -65,50 +60,28 @@
         <button class="R_banner_arrow" id="next">&#8594;</button>
     </div>
 
-    <div class="container">
+    <!--Main Menu-->
+    <div id="main_menu" class="main_menu">
 
-        <div class="profile-sidebar">
+        <div class="filters_menu">
 
-            <form class="profile-form">
-                <div>
-                    <img src="../static/imgs/avatar.png" alt="Аватар">
-                </div><br>
-
-                <input type="text" placeholder="Ваш псевдонім:" required><br>
-
-                <button type="reset">Змінити псевдонім</button><br>
-                <button type="reset">Змінити зображення</button><br>
-
-
-            </form>
         </div>
 
+        <div id="product_container" class="products_menu">
+            <h2>Ваш обліковий запис</h2><br><br>
+            <p>Тут ви можете добавляти товар на сайт</p>>
+            <button onclick="window.location.href = '/add-product'" type="button">Перейти до добавленню продукту -></button>
+        </div>
+    </div>
 
-            <div class="profile-content">
-
-                <h1>Ваша інформація:</h1>
-
-                <form id="infoForm">
-                    <label for="name">Ім'я:</label>
-                    <input type="text" id="name" placeholder="Введіть ваше ім'я" required><br><br>
-    
-                    <label for="surname">Прізвище:</label>
-                    <input type="text" id="surname" placeholder="Введіть ваше прізвище" required><br><br>
-    
-                    <label for="phone">Номер телефону:</label>
-                    <input type="text" id="phone" placeholder="+380 123 456 789" required><br><br>
-    
-                    <label for="address">Адреса:</label>
-                    <input type="text" id="address" placeholder="Введіть вашу адресу" required><br><br>
-    
-                    <label for="email">Gmail:</label>
-                    <input type="email" id="email" placeholder="example@gmail.com" required><br><br>
-    
-                    <button type="reset">Змінити дані</button>
-                </form>
-
-            </div>
-
+    <div class="popup" id="popup_about">
+      <div class="overlay" onclick="toggle_popup('popup_about')"></div>
+      <div class="content">
+        <div class="close_btn" onclick="toggle_popup('popup_about')">&times;</div>
+        <h1 class="popup_main">Про нас</h1>
+        <p>Номер телєфончіку:</p><a href="#" onclick="copy_on_clipboard('phone_copy')" id="phone_copy">+380 677 06 12 94</a>
+        <p>Поштова скринюлічка:</p><a href="#" onclick="copy_on_clipboard('gmail_copy')" id="gmail_copy">bebra@gmail.com</a>
+      </div>
     </div>
 </body>
 </html>
