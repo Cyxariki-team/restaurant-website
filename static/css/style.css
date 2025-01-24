@@ -368,3 +368,28 @@ body {
     cursor: not-allowed;
 }
 
+.account-menu {
+    isplay: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    width: 80%;
+    height: 2000px;
+    padding-top: 50px;
+    padding-left: 50px;
+    background-color: rgba(237, 237, 237, 1);
+}
+
+.center-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+.history-box {
+    background-color: lightgray;
+}
+
+#textarea-box {
+    height: 400px;
+}
