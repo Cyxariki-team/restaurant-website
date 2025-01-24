@@ -159,6 +159,9 @@ def menu():
 def user_account():
     username = session.get('username')
 
+    if request.method == "POST":
+        session.clear()
+        return redirect(url_for("login"))
     return render_template("user-account.html", username=username)
 
 

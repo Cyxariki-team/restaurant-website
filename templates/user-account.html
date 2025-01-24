@@ -27,7 +27,7 @@
         <a href="#cart" class="cart" onclick="bebra()">🛒</a>
         <span></span>
       </div>
-        <h1>{{ username }}</h1>
+        <h1 style="color:white;">{{ username }}</h1>
       <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">
         <img class="" src="../static/img/130-1300400_user-hd-png-download.png" alt="profile logo" height="100%">
       </button>
@@ -64,7 +64,9 @@
     <div id="main_menu" class="main_menu">
 
         <div class="filters_menu">
-
+            <form action="/user-account" method="POST">
+                <button type="submit" class="login_button">Вийти з акаунта</button>
+            </form>
         </div>
 
         <div class="account-menu">
