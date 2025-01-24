@@ -32,9 +32,16 @@
       </div>
 
       <div class="cart-icon">
-        <a href="#cart" class="cart" onclick="bebra()">🛒</a>
-        <span></span>
+        <a href="#cart" class="open-cart-btn" onclick="toggleCart(event)">🛒</a>
       </div>
+
+
+        <div id="cart" class="cart">
+            <h2>Ваш кошик</h2>
+            <button class="close-cart-btn" onclick="toggleCart(event)">Закрити</button>
+            <ul id="cart-items"></ul>
+            <p id="cart-empty">Кошик порожній</p>
+        </div>
       
       <button onclick="window.location.href = '/user-account'" type="button" class="prof_logo">
         <img class="" src="../static/img/130-1300400_user-hd-png-download.png" alt="profile logo" height="100%">
@@ -109,10 +116,12 @@
                         <div class="overlay" onclick="toggle_popup('popup_{{ product.name }}', 'overlay')"></div>
                         <div class="content">
                             <div class="close_btn" onclick="toggle_popup('popup_{{ product.name }}', 'close_btn')">&times;</div>
-                            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 5px;">
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 30px;">
                             <p>{{ product.name }}</p>
                             <p>Price: ${{ product.price }}</p>
+                            <button class="add-to-cart-btn" onclick="addToCart(event, '{{ product.name }}', {{ product.price }})">Додати в кошик</button>
                         </div>
+
                     </div>
 
                 {% endfor %}

@@ -37,6 +37,32 @@ nextButton.addEventListener('click', () => {
 
 updateButtons();
 
+function toggleCart(event) {
+  event.preventDefault(); // Запобігти переходу по посиланню
+  const cart = document.getElementById('cart');
+  cart.classList.toggle('open');
+}
+
+function closeCart() {
+  const cart = document.getElementById('cart');
+  const overlay = document.getElementById('cart-overlay');
+  cart.classList.remove('open');
+  overlay.classList.remove('open');
+}
+
+function addToCart(event, productName, productPrice) {
+  event.stopPropagation();
+
+  const cartItems = document.getElementById('cart-items');
+  const cartEmpty = document.getElementById('cart-empty');
+
+  const listItem = document.createElement('li');
+  listItem.textContent = `${productName} - $${productPrice}`;
+  cartItems.appendChild(listItem);
+
+  cartEmpty.style.display = 'none';
+}
+
 function toggle_popup(popup, closedby){
     document.getElementById(popup).classList.toggle("active");
     console.log(popup, " closed by: ", closedby);
