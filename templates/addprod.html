@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+    <link rel="stylesheet" href="../static/css/addprod.css">
+</head>
+<body>
+    <button class="back" onclick="goToMenu(event)">На головну</button>
+    <div class="square">
+        <div class="lelele">
+            <h1 class="lable">Додавання товару</h1>
+                <form action="/add-product" method="POST" enctype="multipart/form-data">
+            <input class="prod" type="text" id="name" name="name" placeholder="Назва"><br><br>
+
+            <textarea class="prod" id="description" name="description" placeholder="Опис" required></textarea><br><br>
+
+            <input class="prod" type="number" id="price" name="price" step="1" placeholder="Ціна" required><br><br>
+
+            <label class="prod" for="image">Фотографія:</label><br><br> 
+            <input class="prod" type="file" id="image" name="image" accept="image/*" required><br><br>
+
+            <button class="prodsubm" type="submit">Add Product</button>
+                </form>
+        </div>
+        
+        <div class="imgprev">
+            <img id="imgprev" src="" alt="Тут з'явиться фото" style="display: none;">
+        </div>
+    </div>
+    </form>
+
+    <script>
+        const imageInput = document.getElementById('image');
+        const previewImage = document.getElementById('imgprev');
+    
+        imageInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              previewImage.src = e.target.result;
+              previewImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+          } else {
+            previewImage.src = '';
+            previewImage.style.display = 'none';
+          }
+        });
+
+            function goToMenu(event) {
+                event.preventDefault();
+                window.location.href = '/menu';
+            }
+    </script>
+
+</body>
+</html>
