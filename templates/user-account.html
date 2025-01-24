@@ -78,13 +78,13 @@
                         <li>
                             <p><strong>Загальна сума:</strong> ${{ log.total_amount }}</p>
                             <p><strong>Час:</strong> {{ log.log_time }}</p>
-                            <p><strong>Коментарі:</strong> {{ log.comments }}</p>
                         </li>
                     {% else %}
                         <p>Немає записів.</p>
                     {% endfor %}
                 </ul>
-            </div><br><br>
+            </div>
+            <br><br>
             <p>Тут ви можете добавляти товар на сайт</p>
             <button onclick="window.location.href = '/add-product'" type="button" >Перейти до добавленню продукту -></button>
         </div>

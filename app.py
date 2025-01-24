@@ -196,7 +196,7 @@ def user_account():
     try:
         connection = get_db_connection()
         cursor = connection.cursor(dictionary=True)
-        cursor.execute("SELECT total_amount, log_time, comments FROM log WHERE username = %s", (username,))
+        cursor.execute("SELECT total_amount, log_time FROM log WHERE username = %s", (username,))
         user_logs = cursor.fetchall()
 
     except mysql.connector.Error as err:
