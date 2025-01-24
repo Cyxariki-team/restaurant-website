@@ -104,6 +104,15 @@ def register_user(username, password):
             connection.close()
 
 
+def login_required(f):
+    from functools import wraps
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -136,6 +145,7 @@ def login():
 
 
 @app.route("/menu", methods=['GET', 'POST'])
+@login_required
 def menu():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
@@ -156,6 +166,7 @@ def menu():
     return render_template('menu.html', products=categorized_products, username=username)
 
 @app.route('/user-account', methods=['GET', 'POST'])
+@login_required
 def user_account():
     username = session.get('username')
 
@@ -178,6 +189,7 @@ def search():
     return jsonify(products)  # Повертаємо JSON
 
 @app.route('/add-product', methods=['GET', 'POST'])
+@login_required
 def add_product():
     if request.method == 'POST':
         name = request.form['name']
