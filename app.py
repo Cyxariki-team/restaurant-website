@@ -7,6 +7,7 @@ import bcrypt
 import logging
 import cloudinary.uploader
 import cloudinary
+import datetime
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
@@ -148,38 +149,40 @@ def login():
 @login_required
 def menu():
     connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM products WHERE price > 0 ORDER BY category")
-    products = cursor.fetchall()
-    username = session.get('username')
+    try:
+        with connection.cursor(dictionary=True) as cursor:
+            cursor.execute("SELECT * FROM products WHERE price > 0 ORDER BY category")
+            products = cursor.fetchall()
 
-    categorized_products = {}
-    for product in products:
-        category = product['category']
-        if category not in categorized_products:
-            categorized_products[category] = []
-        categorized_products[category].append(product)
+            categorized_products = {}
+            for product in products:
+                category = product['category']
+                if category not in categorized_products:
+                    categorized_products[category] = []
+                categorized_products[category].append(product)
 
-    if request.method == 'POST':
-        # Отримуємо дані з форми
-        total_amount = request.form.get('total_amount')
-        log_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # Час для запису
-        username = session.get('username')
+            username = session.get('username')
 
-        # Перевірка на наявність всіх полів
-        if total_amount and username:
-            try:
-                # Записуємо в таблицю log
-                cursor.execute("INSERT INTO log (username, total_amount, log_time) VALUES (%s, %s, %s)",
-                               (username, total_amount, log_time))
-                connection.commit()
-            except mysql.connector.Error as err:
-                logging.error(f"Error while inserting log data: {err}")
+            if request.method == 'POST':
+                total_amount = request.form.get('total_amount')
+                log_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-        return redirect(url_for('menu'))
+                if total_amount and username:
+                    try:
+                        cursor.execute("INSERT INTO log (username, total_amount, log_time) VALUES (%s, %s, %s)",
+                                       (username, total_amount, log_time))
+                        connection.commit()
+                    except mysql.connector.Error as err:
+                        logging.error(f"Error while inserting log data: {err}")
 
-    cursor.close()
-    connection.close()
+                return redirect(url_for('menu'))
+
+    except mysql.connector.Error as err:
+        logging.error(f"Database error: {err}")
+
+    finally:
+        if connection:
+            connection.close()
 
     return render_template('menu.html', products=categorized_products, username=username)
 
