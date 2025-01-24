@@ -81,7 +81,8 @@ body {
 }
 
 .logo_img {
-    height: 90%;
+    height: 140%;
+    padding: 0px 50px 0px 20px;
 }
 
 .logo_text {
@@ -138,6 +139,9 @@ body {
 }
 
 .prof_logo {
+    border-radius: 99px;
+    border: none;
+    background-color: #00000000;
     height : 90%;
     margin-right : 25px;
 }
