@@ -146,6 +146,11 @@ body {
     margin-right : 25px;
 }
 
+.prof_logo :hover {
+    border-radius: 99px;
+    background-color: #ffffff31;
+}
+
 .popup .overlay {
     position: fixed;
     top: 0px;
