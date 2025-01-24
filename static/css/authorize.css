@@ -158,6 +158,19 @@ body {
     color: white;
 }
 
+.prof_logo {
+    border-radius: 99px;
+    border: none;
+    background-color: #00000000;
+    height : 90%;
+    margin-right : 25px;
+}
+
+.prof_logo :hover {
+    border-radius: 99px;
+    background-color: #ffffff31;
+}
+
 .popup .close_btn{
     position: absolute;
     right: 20px;
