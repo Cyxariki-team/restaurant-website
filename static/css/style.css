@@ -49,12 +49,16 @@ body {
     height: 25%;
     width: 50px;
     margin-left: 30%;
+    border-radius: 99px;
+    font-size: 25px;
 }
 
 .R_banner_arrow {
     height: 25%;
     width: 50px;
     margin-right: 30%;
+    border-radius: 99px;
+    font-size: 25px;
 }
 
 .category-title {
