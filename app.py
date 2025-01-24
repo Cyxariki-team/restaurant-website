@@ -164,30 +164,30 @@ def search():
     connection.close()
     return jsonify(products)  # Повертаємо JSON
 
-# @app.route('/add-product', methods=['GET', 'POST'])
-# def add_product():
-#     if request.method == 'POST':
-#         name = request.form['name']
-#         description = request.form['description']
-#         price = request.form['price']
-#         image = request.files['image']
-#
-#         if image:
-#             response = cloudinary.uploader.upload(image)
-#             imgur_link = response['secure_url']
-#
-#             connection = get_db_connection()
-#             cursor = connection.cursor()
-#             cursor.execute(
-#                 "INSERT INTO products (name, description, image_url, price) VALUES (%s, %s, %s, %s)",
-#                 (name, description, imgur_link, price),
-#             )
-#             connection.commit()
-#             cursor.close()
-#             connection.close()
-#
-#         return redirect(url_for('menu'))
-#     return render_template('add-product.html')
+@app.route('/add-product', methods=['GET', 'POST'])
+def add_product():
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        price = request.form['price']
+        image = request.files['image']
+
+        if image:
+            response = cloudinary.uploader.upload(image)
+            imgur_link = response['secure_url']
+
+            connection = get_db_connection()
+            cursor = connection.cursor()
+            cursor.execute(
+                "INSERT INTO products (name, description, image_url, price) VALUES (%s, %s, %s, %s)",
+                (name, description, imgur_link, price),
+            )
+            connection.commit()
+            cursor.close()
+            connection.close()
+
+        return redirect(url_for('menu'))
+    return render_template('add-product.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
