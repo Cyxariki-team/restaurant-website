@@ -137,7 +137,7 @@ def login():
 def menu():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM products ORDER BY category")
+    cursor.execute("SELECT * FROM products WHERE price > 0 ORDER BY category")
     products = cursor.fetchall()
 
     categorized_products = {}
