@@ -202,6 +202,56 @@ function searchProducts() {
                 productButton.append(productImg, productName, productDesc, productPrice);
                 product_container.appendChild(productButton);
 
+
+                //POPUP
+
+                // Основний контейнер для popup
+                const popup = document.createElement("div");
+                popup.className = "popup";
+                popup.id = `popup_${product.name}`;
+
+                // Напівпрозорий фон (overlay)
+                const overlay = document.createElement("div");
+                overlay.className = "overlay";
+                overlay.onclick = () => toggle_popup(`popup_${product.name}`);
+
+                // Вміст popup
+                const content = document.createElement("div");
+                content.className = "content";
+
+                // Кнопка закриття
+                const closeBtn = document.createElement("div");
+                closeBtn.className = "close_btn";
+                closeBtn.innerHTML = "&times;";
+                closeBtn.onclick = () => toggle_popup(`popup_${product.name}`);
+
+                // Зображення товару
+                const productImg = document.createElement("img");
+                productImg.src = product.image_url;
+                productImg.alt = product.name;
+                productImg.style.cssText = "max-width: 300px; max-height: 300px; min-width: 200px; margin-top: 30px;";
+
+                // Назва товару
+                const productName = document.createElement("p");
+                productName.textContent = product.name;
+
+                // Ціна товару
+                const productPrice = document.createElement("p");
+                productPrice.textContent = `Price: ₴${product.price}`;
+
+                // Кнопка "Додати в кошик"
+                const addToCartBtn = document.createElement("button");
+                addToCartBtn.className = "add-to-cart-btn";
+                addToCartBtn.textContent = "Додати в кошик";
+                addToCartBtn.onclick = (event) => addToCart(event, product.name, product.price);
+
+                // Додаємо всі елементи у відповідні контейнери
+                content.append(closeBtn, productImg, productName, productPrice, addToCartBtn);
+                popup.append(overlay, content);
+
+                // Додаємо popup в body або в контейнер з продуктами
+                product_container.append(popup);
+
             });
         })
         .catch(function(error) {
