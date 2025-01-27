@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.4.2';
+vers = 'version 0.4.3';
 console.log(vers);
 let totalAmount = 0;
 document.getElementById("VERSION").textContent=vers;
@@ -188,7 +188,7 @@ function searchProducts() {
                 const addToCartBtn = document.createElement("button");
                 addToCartBtn.className = "add-to-cart-btn";
                 addToCartBtn.textContent = "Додати в кошик";
-                addToCartBtn.onclick = (event) => addToCart(event, product.name, product.price);
+                addToCartBtn.onclick = (event) => addToCart(event, '{{ product.name }}', {{ product.price }});
 
                 // Додаємо всі елементи у відповідні контейнери
                 content.append(closeBtn, popupImg, popupName, popupPrice, addToCartBtn);
