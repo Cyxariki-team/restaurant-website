@@ -188,7 +188,7 @@ function searchProducts() {
                 const addToCartBtn = document.createElement("button");
                 addToCartBtn.className = "add-to-cart-btn";
                 addToCartBtn.textContent = "Додати в кошик";
-                addToCartBtn.onclick = (event) => addToCart(event, '{{ product.name }}', {{ product.price }});
+                addToCartBtn.onclick = (event) => addToCart(event, 'product.name', product.price);
 
                 //addToCart(event, product.name, product.price);
 
