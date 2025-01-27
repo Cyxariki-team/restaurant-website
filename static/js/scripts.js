@@ -200,7 +200,7 @@ function searchProducts() {
 
                 // Додаємо всі елементи в кнопку
                 productButton.append(productImg, productName, productDesc, productPrice);
-                productContainer.appendChild(productButton);
+                product_container.appendChild(productButton);
 
             });
         })
