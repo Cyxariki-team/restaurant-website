@@ -190,6 +190,8 @@ function searchProducts() {
                 addToCartBtn.textContent = "Додати в кошик";
                 addToCartBtn.onclick = (event) => addToCart(event, '{{ product.name }}', {{ product.price }});
 
+                //addToCart(event, product.name, product.price);
+
                 // Додаємо всі елементи у відповідні контейнери
                 content.append(closeBtn, popupImg, popupName, popupPrice, addToCartBtn);
                 popup.append(overlay, content);
