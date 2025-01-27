@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.4.2';
+vers = 'version 0.3.9';
 console.log(vers);
 let totalAmount = 0;
 document.getElementById("VERSION").textContent=vers;
@@ -123,85 +123,54 @@ function searchProducts() {
             resultsList.innerHTML = "";
             
             data.forEach(function(product) {
-                // === КНОПКА ТОВАРУ ===
-                const productButton = document.createElement("button");
-                productButton.id = `product_${product.name}`;
-                productButton.className = "test_product";
-                productButton.onclick = () => toggle_popup(`popup_${product.name}`);
+                //let li = document.createElement("li");
+                //li.textContent = product.name + " - " + product.price + " грн";
 
-                // Зображення товару
-                const productImg = document.createElement("img");
-                productImg.src = product.image_url;
-                productImg.style.cssText = "width:100%; height:65%;";
+                let product_button = document.createElement("button");
 
-                // Назва товару
-                const productName = document.createElement("h2");
-                productName.textContent = product.name;
+                product_button.setAttribute("id", "product_{{ product.name }}");
+                product_button.className = "test_product";
+                product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
+                product_container.appendChild(product_button);
 
-                // Опис товару
-                const productDesc = document.createElement("p");
-                productDesc.textContent = product.description;
+                let product_img = document.createElement("img");
+                product_img.src = product.image_url;
+                product_img.setAttribute("style", "width:100%;height:65%;");
+                product_button.appendChild(product_img)
 
-                // Ціна товару
-                const productPrice = document.createElement("p");
-                productPrice.textContent = `₴${product.price}`;
+                let product_name = document.createElement("h2");
+                product_name.textContent = product.name;
+                product_button.appendChild(product_name)
 
-                // Додаємо всі елементи до кнопки
-                productButton.append(productImg, productName, productDesc, productPrice);
-                product_container.appendChild(productButton);
+                let product_desc = document.createElement("p");
+                product_desc.textContent = product.description;
+                product_button.appendChild(product_desc)
 
-                // === POPUP ===
-                const popup = document.createElement("div");
-                popup.className = "popup";
-                popup.id = `popup_${product.name}`;
+                let product_price = document.createElement("p");
+                product_price.textContent = product.price + 'грн';
+                product_button.appendChild(product_price);
 
-                // Напівпрозорий фон (overlay)
-                const overlay = document.createElement("div");
-                overlay.className = "overlay";
-                overlay.onclick = () => toggle_popup(`popup_${product.name}`);
-
-                // Вміст попапу
-                const content = document.createElement("div");
-                content.className = "content";
-
-                // Кнопка закриття
-                const closeBtn = document.createElement("div");
-                closeBtn.className = "close_btn";
-                closeBtn.innerHTML = "&times;";
-                closeBtn.onclick = () => toggle_popup(`popup_${product.name}`);
-
-                // Зображення товару
-                const popupImg = document.createElement("img");
-                popupImg.src = product.image_url;
-                popupImg.alt = product.name;
-                popupImg.style.cssText = "max-width: 300px; max-height: 300px; min-width: 200px; margin-top: 30px;";
-
-                // Назва товару
-                const popupName = document.createElement("p");
-                popupName.textContent = product.name;
-
-                // Ціна товару
-                const popupPrice = document.createElement("p");
-                popupPrice.textContent = `Price: ₴${product.price}`;
-
-                // Кнопка "Додати в кошик"
-                const addToCartBtn = document.createElement("button");
-                addToCartBtn.className = "add-to-cart-btn";
-                addToCartBtn.textContent = "Додати в кошик";
-                addToCartBtn.onclick = (event) => addToCart(event, product.name, product.price);
-
-                // Додаємо всі елементи у відповідні контейнери
-                content.append(closeBtn, popupImg, popupName, popupPrice, addToCartBtn);
-                popup.append(overlay, content);
-
-                // Додаємо popup у body
-                product_container.append(popup);
+                //resultsList.appendChild(li);
             });
         })
         .catch(function(error) {
             console.error("Помилка:", error);
         });
 }
+
+/*
+<div class="popup" id="popup_{{ product.name }}">
+    <div class="overlay" onclick="toggle_popup('popup_{{ product.name }}', 'overlay')"></div>
+    <div class="content">
+     <div class="close_btn" onclick="toggle_popup('popup_{{ product.name }}', 'close_btn')">&times;</div>
+     <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 30px;">
+     <p>{{ product.name }}</p>
+        <p>Price: ₴{{ product.price }}</p>
+        <button class="add-to-cart-btn" onclick="addToCart(event, '{{ product.name }}', {{ product.price }})">Додати в кошик</button>
+    </div>
+
+</div>
+*/
 
 
 /*<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
