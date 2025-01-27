@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.4.1';
+vers = 'version 0.4.2';
 console.log(vers);
 let totalAmount = 0;
 document.getElementById("VERSION").textContent=vers;
