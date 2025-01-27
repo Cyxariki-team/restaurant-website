@@ -127,7 +127,6 @@ function searchProducts() {
                 //li.textContent = product.name + " - " + product.price + " грн";
 
                 let product_button = document.createElement("button");
-
                 product_button.setAttribute("id", "product_{{ product.name }}");
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
@@ -150,13 +149,52 @@ function searchProducts() {
                 product_price.textContent = product.price + 'грн';
                 product_button.appendChild(product_price);
 
-                //resultsList.appendChild(li);
+                // Popup
+
+                let popup_main = document.createElement("div");
+                product_button.setAttribute("id", "popup_{{ product.name }}");
+                product_button.className = "popup";
+                product_container.appendChild(popup_main);
+
+
+                let popup_overlay = document.createElement("div");
+                popup_overlay.setAttribute("id", "popup_{{ product.name }}");
+                popup_overlay.className = "overlay";
+                popup_overlay.onclick="toggle_popup('popup_{{product.name}}', 'overlay')";
+                product_container.appendChild(popup_overlay);
+
+                let popup_content = document.createElement("div");
+                popup_content.setAttribute("id", "popup_{{ product.name }}");
+                popup_content.className = "overlay";
+                popup_content.onclick="toggle_popup('popup_{{product.name}}', 'overlay')";
+                product_container.appendChild(popup_content);
+                
+                let close_btn = document.createElement("div");
+                popup_content.setAttribute("id", "popup_{{ product.name }}");
+                popup_content.className = "overlay";
+                popup_content.onclick="toggle_popup('popup_{{product.name}}', 'overlay')";
+                popup_content.appendChild(close_btn);
+
             });
         })
         .catch(function(error) {
             console.error("Помилка:", error);
         });
 }
+
+/*
+<div class="popup" id="popup_{{ product.name }}">
+    <div class="overlay" onclick="toggle_popup('popup_{{ product.name }}', 'overlay')"></div>
+    <div class="content">
+     <div class="close_btn" onclick="toggle_popup('popup_{{ product.name }}', 'close_btn')">&times;</div>
+     <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 300px;max-height: 300px;min-width: 200px; margin-top: 30px;">
+     <p>{{ product.name }}</p>
+        <p>Price: ₴{{ product.price }}</p>
+        <button class="add-to-cart-btn" onclick="addToCart(event, '{{ product.name }}', {{ product.price }})">Додати в кошик</button>
+    </div>
+
+</div>
+*/
 
 
 /*<button id="product.name" class="test_product" onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'">
