@@ -1,5 +1,5 @@
 const d = new Date();
-vers = 'version 0.3.9';
+vers = 'version 0.4.0';
 console.log(vers);
 let totalAmount = 0;
 document.getElementById("VERSION").textContent=vers;
@@ -126,7 +126,7 @@ function searchProducts() {
                 //let li = document.createElement("li");
                 //li.textContent = product.name + " - " + product.price + " грн";
 
-                /*let product_button = document.createElement("button");
+                let product_button = document.createElement("button");
                 product_button.setAttribute("id", "product_{{ product.name }}");
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
@@ -151,7 +151,7 @@ function searchProducts() {
 
                 // Popup
 
-                let popup_main = document.createElement("div");
+                /*let popup_main = document.createElement("div");
                 product_button.setAttribute("id", "popup_{{ product.name }}");
                 product_button.className = "popup";
                 product_container.appendChild(popup_main);
@@ -175,6 +175,8 @@ function searchProducts() {
                 popup_content.onclick="toggle_popup('popup_{{product.name}}', 'close_btn')";
                 popup_content.appendChild(close_btn);*/
 
+
+                /*
                 // Кнопка товару
                 const productButton = document.createElement("button");
                 productButton.id = `product_${product.name}`;
@@ -182,24 +184,24 @@ function searchProducts() {
                 productButton.onclick = () => toggle_popup(`popup_${product.name}`);
 
                 // Зображення товару
-                const productImg = document.createElement("img");
-                productImg.src = product.image_url;
-                productImg.style.cssText = "width:100%;height:65%;";
+                const product_Img = document.createElement("img");
+                product_Img.src = product.image_url;
+                product_Img.style.cssText = "width:100%;height:65%;";
 
                 // Назва товару
-                const productName = document.createElement("h2");
-                productName.textContent = product.name;
+                const product_Name = document.createElement("h2");
+                product_Name.textContent = product.name;
 
                 // Опис товару
-                const productDesc = document.createElement("p");
-                productDesc.textContent = product.description;
+                const product_Desc = document.createElement("p");
+                product_Desc.textContent = product.description;
 
                 // Ціна товару
-                const productPrice = document.createElement("p");
-                productPrice.textContent = `${product.price} грн`;
+                const product_Price = document.createElement("p");
+                product_Price.textContent = `${product.price} грн`;
 
                 // Додаємо всі елементи в кнопку
-                productButton.append(productImg, productName, productDesc, productPrice);
+                productButton.append(product_Img, product_Name, product_Desc, product_Price);
                 product_container.appendChild(productButton);
 
 
@@ -251,7 +253,7 @@ function searchProducts() {
 
                 // Додаємо popup в body або в контейнер з продуктами
                 product_container.append(popup);
-
+                */
             });
         })
         .catch(function(error) {
