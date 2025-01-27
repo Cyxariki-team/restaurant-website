@@ -126,7 +126,7 @@ function searchProducts() {
                 //let li = document.createElement("li");
                 //li.textContent = product.name + " - " + product.price + " грн";
 
-                let product_button = document.createElement("button");
+                /*let product_button = document.createElement("button");
                 product_button.setAttribute("id", "product_{{ product.name }}");
                 product_button.className = "test_product";
                 product_button.onclick="toggle_popup('popup_{{product.name}}'), 'EL PROBLEMO'";
@@ -170,10 +170,37 @@ function searchProducts() {
                 product_container.appendChild(popup_content);
                 
                 let close_btn = document.createElement("div");
-                popup_content.setAttribute("id", "popup_{{ product.name }}");
-                popup_content.className = "overlay";
-                popup_content.onclick="toggle_popup('popup_{{product.name}}', 'overlay')";
-                popup_content.appendChild(close_btn);
+                //popup_content.setAttribute("id", "popup_{{ product.name }}");
+                popup_content.className = "close_btn";
+                popup_content.onclick="toggle_popup('popup_{{product.name}}', 'close_btn')";
+                popup_content.appendChild(close_btn);*/
+
+                // Кнопка товару
+                const productButton = document.createElement("button");
+                productButton.id = `product_${product.name}`;
+                productButton.className = "test_product";
+                productButton.onclick = () => toggle_popup(`popup_${product.name}`);
+
+                // Зображення товару
+                const productImg = document.createElement("img");
+                productImg.src = product.image_url;
+                productImg.style.cssText = "width:100%;height:65%;";
+
+                // Назва товару
+                const productName = document.createElement("h2");
+                productName.textContent = product.name;
+
+                // Опис товару
+                const productDesc = document.createElement("p");
+                productDesc.textContent = product.description;
+
+                // Ціна товару
+                const productPrice = document.createElement("p");
+                productPrice.textContent = `${product.price} грн`;
+
+                // Додаємо всі елементи в кнопку
+                productButton.append(productImg, productName, productDesc, productPrice);
+                productContainer.appendChild(productButton);
 
             });
         })
