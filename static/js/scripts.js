@@ -1,7 +1,7 @@
 const d = new Date();
-vers = 'version 0.4.6';
+vers = 'version 0.4.7';
 console.log(vers);
-let totalAmount = 0;
+let totalAmount = 0.0;
 document.getElementById("VERSION").textContent=vers;
 
 const slides = document.querySelector('.slides');
@@ -62,7 +62,7 @@ function addToCart(event, productName, productPrice) {
   listItem.textContent = `${productName} - $${productPrice}`;
   cartItems.appendChild(listItem);
 
-  totalAmount += productPrice;
+  totalAmount += parseFloat(productPrice);
   cartTotal.textContent = totalAmount.toFixed(2);
 
   cartEmpty.style.display = 'none';
